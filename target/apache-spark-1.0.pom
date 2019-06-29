@@ -4,7 +4,6 @@
     <groupId>com.bayudwiyansatria.environment.bigdata</groupId>
     <artifactId>apache-spark</artifactId>
     <version>1.0</version>
-    <packaging>jar</packaging>
 
     <name>Apache Spark Library</name>
     <description>Apache Spark Library.</description>
@@ -19,7 +18,6 @@
 	<licenses>
 		<license>
 			<name>MIT LICENSE</name>
-            <url>http://www.opensource.org/licenses/mit-license.php</url>
 		</license>
     </licenses>
 
@@ -28,9 +26,7 @@
             <id>bayudwiyansatria</id>
             <name>Bayu Dwiyan Satria</name>
             <email>bayudwiyansatria@gmail.com</email>
-            <url>https://profile.bayudwiyansatria.com</url>
-            <organization>Bayu Dwiyan Satria</organization>
-            <organizationUrl>https://dev.bayudwiyansatria.com</organizationUrl>
+            <url>https://bayudwiyansatria.com</url>
             <timezone>UTC+8</timezone>
         </developer>
     </developers>
