@@ -2,9 +2,9 @@
  * Copyright (c) 2019 Bayu Dwiyan Satria. All Rights Reserved.
  */
 
-package com.bayudwiyansatria.environment.apache;
+package com.bayudwiyansatria.environment.apache.spark;
 
-class SparkConfiguration extends SparkProperties {
+public class SparkConfiguration extends SparkProperties {
 
     /* Main Configuration */
     private String SPARK_MASTER_HOST = null;
@@ -76,7 +76,7 @@ class SparkConfiguration extends SparkProperties {
 
     public String getMainClass(){
         if(SPARK_MAIN_CLASS == null){
-            setMainClass("Library");
+            setMainClass("Main");
         }
         return SPARK_MAIN_CLASS;
     }
@@ -87,7 +87,7 @@ class SparkConfiguration extends SparkProperties {
 
     public String getPrimaryResource(){
         if(SPARK_PRIMARY_RESOURCES == null){
-            setPrimaryResource("target/ACPL.jar");
+            setPrimaryResource("target/example.jar");
         }
         return SPARK_PRIMARY_RESOURCES;
     }
@@ -99,7 +99,7 @@ class SparkConfiguration extends SparkProperties {
 
     public String getAppName(){
         if(SPARK_APPLICATION_NAME == null){
-            setAppName("Automatic Clustering Parallel Library");
+            setAppName("Example");
         }
         return SPARK_APPLICATION_NAME;
     }

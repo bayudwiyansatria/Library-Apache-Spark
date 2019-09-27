@@ -2,7 +2,7 @@
  * Copyright (c) 2019 Bayu Dwiyan Satria. All Rights Reserved.
  */
 
-package com.bayudwiyansatria.environment.apache;
+package com.bayudwiyansatria.environment.apache.spark;
 
 
 import com.bayudwiyansatria.io.IO;
@@ -10,7 +10,7 @@ import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.deploy.SparkSubmit;
 
-public class Spark extends SparkConfiguration{
+public class Spark extends SparkConfiguration {
     protected String[] sparkConfiguration = new String[30];
     protected String[] childArguments = new String[3];
 
@@ -42,18 +42,15 @@ public class Spark extends SparkConfiguration{
             setMaster(getSparkMasterHost());
             return getSparkMasterHost();
         } else {
-            setMaster("spark://" +getSparkMasterHost()+ ":" +getSparkMasterPort());
-            return "spark://" +getSparkMasterHost()+ ":" +getSparkMasterPort();
+            setMaster("spark://" + getSparkMasterHost() + ":" +getSparkMasterPort());
+            return "spark://" + getSparkMasterHost() + ":" +getSparkMasterPort();
         }
     }
-
-
 
     public String[] getSparkArgument(){
         String[] Configuration = new String[99];
         int ConfigurationIndex = 0;
         if(getSparkMaster() != null){
-
             ConfigurationIndex = ConfigurationIndex + 2;
             Configuration[ConfigurationIndex-1] = "--master";
             Configuration[ConfigurationIndex] = getSparkMaster();
@@ -139,6 +136,20 @@ public class Spark extends SparkConfiguration{
             Configuration[ConfigurationIndex-1] = "--driver-java-options";
             Configuration[ConfigurationIndex] = getDriverExtraJavaOptions();
             //System.out.println("Number of Executor : " + getNumExecutors());
+        }
+
+        if(getPackages() != null){
+            ConfigurationIndex = ConfigurationIndex + 2;
+            Configuration[ConfigurationIndex-1] = "--packages";
+            Configuration[ConfigurationIndex] = getPackages();
+            //System.out.println("Jar Application : " + getJars());
+        }
+
+        if(getRepositories() != null){
+            ConfigurationIndex = ConfigurationIndex + 2;
+            Configuration[ConfigurationIndex-1] = "--repositories";
+            Configuration[ConfigurationIndex] = getRepositories();
+            //System.out.println("Jar Application : " + getJars());
         }
 
         /* =========================================== Application Properties ======================================= */

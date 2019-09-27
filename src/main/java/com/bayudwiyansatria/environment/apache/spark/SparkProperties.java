@@ -2,7 +2,7 @@
  * Copyright (c) 2019 Bayu Dwiyan Satria. All Rights Reserved.
  */
 
-package com.bayudwiyansatria.environment.apache;
+package com.bayudwiyansatria.environment.apache.spark;
 
 public class SparkProperties {
     /* See https://spark.apache.org/docs/latest/configuration.html for more information */

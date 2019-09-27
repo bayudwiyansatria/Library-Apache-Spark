@@ -2,7 +2,7 @@
  * Copyright (c) 2019 Bayu Dwiyan Satria. All Rights Reserved.
  */
 
-package com.bayudwiyansatria.environment.apache;
+package com.bayudwiyansatria.environment.apache.spark;
 
 
 import org.apache.spark.api.java.JavaRDD;
