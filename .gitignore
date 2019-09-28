@@ -289,7 +289,11 @@ paket-files/
 
 # JetBrains Rider
 .idea/
+.gradle/
+.settings/
+build/
 target/
+*.iml
 *.sln.iml
 
 # CodeRush
