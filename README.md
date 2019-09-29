@@ -25,7 +25,7 @@
 </p>
 <hr>
 
-# Bayu Dwiyan Satria - Library For Apache Spark Environment
+# Bayu Dwiyan Satria - Apache Spark Libraries
 
 **Official Website: https://www.bayudwiyansatria.com/**
 
@@ -68,6 +68,13 @@ Dependencies Repository : https://search.maven.org/
 * **HamCrest** : hamcrest-core - v1.3 (org.hamcrest:hamcrest-core:1.3).
 * **HamCrest** : hamcrest-library - v1.3 (org.hamcrest:hamcrest-library:1.3).
 * **BayuDwiyanSatria** : core - v1.1.7 (com.bayudwiyansatria:core:1.1.7).
+* **ScalaLang** : scala-library - v2.11.12 (org.scala-lang:scala-library:2.11.12).
+* **ApacheLoggingLog4j** : log4j-api - v2.11.2 (org.apache.logging.log4j:log4j-api:2.11.2).
+* **ApacheSpark** : spark-network-common_2.11 - v2.6.5 (org.apache.spark:spark-network-common_2.11:2.6.5).
+* **ApacheSpark** : spark-catalyst_2.11 - v2.6.5 (org.apache.spark:spark-catalyst_2.11:2.6.5).
+* **ApacheSpark** : spark-launcher_2.11 - v2.6.5 (org.apache.spark:spark-launcher_2.11:2.6.5).
+* **ApacheSpark** : spark-mllib_2.11 - v2.6.5 (org.apache.spark:spark-mllib_2.11:2.6.5).
+
 
 <small> Note : Some dependencies might not be available at Maven Central </small>
 
