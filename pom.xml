@@ -32,7 +32,7 @@
 	<packaging>jar</packaging>
 
 	<!-- Project Information -->
-	<name>Bayu Dwiyan Satria - Apache Spark</name>
+	<name>Bayu Dwiyan Satria - Apache Spark Libraries</name>
 	<description>Bayu Dwiyan Satria For Apache Spark Environment.</description>
 	<url>https://bayudwiyansatria.github.io//Library-Apache-Spark</url>
 	<inceptionYear>2018</inceptionYear>

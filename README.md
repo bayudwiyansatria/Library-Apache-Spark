@@ -29,7 +29,32 @@
 
 **Official Website: https://www.bayudwiyansatria.com/**
 
-Core of Bayu Dwiyan Satria Project Framework.
+Apache Spark Libraries.
+
+Apache Spark has as its architectural foundation the resilient distributed dataset (RDD), a read-only multiset of data items distributed over a cluster of machines, that is maintained in a fault-tolerant way. The Dataframe API was released as an abstraction on top of the RDD, followed by the Dataset API. In Spark 1.x, the RDD was the primary application programming interface (API), but as of Spark 2.x use of the Dataset API is encouraged even though the RDD API is not deprecated. The RDD technology still underlies the Dataset API.
+
+<table>
+    <tr>
+        <td>Name</td>
+        <td>Bayu Dwiyan Satria - Apache-Spark Libraries</td>
+    </tr>
+    <tr>
+        <td>Description</td>
+        <td>Apache Spark Libraries.</td>
+    </tr>
+    <tr>
+        <td>Homepage</td>
+        <td><a href="https://bayudwiyansatria.github.io/Library-Apache-Spark">https://bayudwiyansatria.github.io/Library-Apache-Spark</a></td>
+    </tr>
+</table>
+
+## Table of Contents
+
+* [Dependencies](#dependencies)
+* [Installation](#installation)
+* [Development](#development)
+* [Contributing](#contributing)
+* [License](#license)
 
 ## Dependencies
 
@@ -37,20 +62,18 @@ Dependencies Repository : https://search.maven.org/
 
 **Maven Central :**
 
-* **JUnit** : JUnit - v4.12
+* **JUnit** : JUnit - v4.12 (junit:junit:4.12).
+* **Slf4j** : slf4j-simple - v1.7.25 (org.slf4j:slf4j-simple:1.7.25).
+* **Slf4j** : slf4j-api - v1.7.25 (org.slf4j:slf4j-api:1.7.25).
+* **HamCrest** : hamcrest-core - v1.3 (org.hamcrest:hamcrest-core:1.3).
+* **HamCrest** : hamcrest-library - v1.3 (org.hamcrest:hamcrest-library:1.3).
+* **BayuDwiyanSatria** : core - v1.1.7 (com.bayudwiyansatria:core:1.1.7).
 
 <small> Note : Some dependencies might not be available at Maven Central </small>
 
 ## Development
 
-* *Release 1.0* : **2019, Jul**.
-* *Release 1.1* : **2019, Jul**. (Available On Maven Central)
-* *Release 1.1.1* : **2019, Sept**. (Available On Maven Central)
-* *Release 1.1.2* : **2019, Jul**. (Available On Maven Central)
-* *Release 1.1.3* : **2019, Jul**.
-* *Release 1.1.4* : **2019, Sept**. (Available On Maven Central)
-* *Release 1.1.5* : **2019, Sept**. (Available On Maven Central)
-* *Release 1.1.6* : **2019, Sept**. (Available On Maven Central)
+* *Release 1.0* : **2019, Sept**.
 
 ## Contributing
 
@@ -58,9 +81,16 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 Please make sure to update tests as appropriate.
 
+Looking to contribute to our code but need some help? There's a few ways to get information:
+
+* Connect with us on [Twitter](https://twitter.com/bayudsatria)
+* Like us on [Facebook](https://facebook.com/PBayuDSatria)
+* Follow us on [LinkedIn](https://linkedin.com/in/bayudwiyansatria)
+* Subscribe us on [Youtube](https://youtube.com/channel/UCihxWj1rtheK73mGdrf0OiA)
+* Log an issue here on github
+
 ## License
 
 [MIT](https://github.com/bayudwiyansatria/Development-And-Operations/blob/master/LICENSE) | [BAYU DWIYAN SATRIA](https://www.bayudwiyansatria.com)
 
 <p> Copyright &copy; 2017 - 2019 Bayu Dwiyan Satria. All Rights Reserved.
-
