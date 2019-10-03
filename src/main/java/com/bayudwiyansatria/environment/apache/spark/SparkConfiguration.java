@@ -63,7 +63,7 @@ public class SparkConfiguration extends SparkProperties {
     public String getSparkMasterHost(){
          if(SPARK_MASTER_HOST == null){
             setSparkMasterHost("local[*]");
-        }
+         }
         return SPARK_MASTER_HOST;
     }
 
@@ -106,9 +106,6 @@ public class SparkConfiguration extends SparkProperties {
     }
 
     public String getPrimaryResource(){
-        if(SPARK_PRIMARY_RESOURCES == null){
-            setPrimaryResource("target/example.jar");
-        }
         return SPARK_PRIMARY_RESOURCES;
     }
 
@@ -119,7 +116,7 @@ public class SparkConfiguration extends SparkProperties {
 
     public String getAppName(){
         if(SPARK_APPLICATION_NAME == null){
-            setAppName("Example");
+            setAppName("Hello World");
         }
         return SPARK_APPLICATION_NAME;
     }

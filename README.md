@@ -36,7 +36,7 @@ Apache Spark has as its architectural foundation the resilient distributed datas
 <table>
     <tr>
         <td>Name</td>
-        <td>Bayu Dwiyan Satria - Apache-Spark Libraries</td>
+        <td>Bayu Dwiyan Satria - Apache Spark Libraries</td>
     </tr>
     <tr>
         <td>Description</td>

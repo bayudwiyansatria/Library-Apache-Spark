@@ -24,34 +24,69 @@
 
 package com.bayudwiyansatria.environment.apache.spark;
 
-
-import com.bayudwiyansatria.io.IO;
+import org.apache.log4j.Level;
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.deploy.SparkSubmit;
+import org.apache.log4j.Logger;
 
 public class Spark extends SparkConfiguration {
-    protected String[] sparkConfiguration = new String[30];
-    protected String[] childArguments = new String[3];
+    private String SPARK_HOME = null;
+    private String SPARK_USER = null;
+    private String[] SPARK_CONFIGURATION = new String[30];
+    private String[] SPARK_CHILD_ARGUMENTS = new String[3];
+    private SparkConf SPARK_CONTEXT_CONF;
+    private JavaSparkContext SPARK_JAVA_CONTEXT;
+
+    public void setSparkHome(String Directory) {
+        System.setProperty("SPARK_HOME", Directory);
+        this.SPARK_HOME = Directory;
+    }
+
+    public String getSparkHome() {
+        return SPARK_HOME;
+    }
+
+    public void setSparkUser(String User) {
+        System.setProperty("SPARK_USER", User);
+        this.SPARK_HOME = User;
+    }
+
+    public String getSparkUser() {
+        if(SPARK_USER == null) {
+            setSparkUser(getUsername());
+        }
+        return SPARK_USER;
+    }
+
+    private void setSparkAttempt(int NumberOfAttempts) {
+        System.setProperty("MAX_APP_ATTEMPTS", String.valueOf(NumberOfAttempts));
+    }
+
+    public JavaSparkContext getSparkContext() {
+        Logger.getRootLogger().setLevel(Level.ERROR);
+        return SPARK_JAVA_CONTEXT = new org.apache.spark.api.java.JavaSparkContext(getSparkContextConf());
+    }
+
+    public SparkConf getSparkContextConf(){
+        Logger.getRootLogger().setLevel(Level.ERROR);
+        return SPARK_CONTEXT_CONF = new org.apache.spark.SparkConf().setMaster(getSparkMaster()).setAppName(getAppName());
+    }
 
     public void setSparkConfiguration() {
-        sparkConfiguration = getSparkArgument();
+        SPARK_CONFIGURATION = getSparkArgument();
     }
 
     public String[] getSparkConfiguration() {
-        return new IO().removeNull(sparkConfiguration);
+        return new com.bayudwiyansatria.mat.Mat().removeNull(SPARK_CONFIGURATION);
     }
 
     public void SparkSubmit(String[] argument) {
         SparkSubmit sparkSubmit = new org.apache.spark.deploy.SparkSubmit();
         this.setSparkConfiguration();
-        System.out.println(sparkSubmit.parseArguments(argument));
         sparkSubmit.parseArguments(argument);
+        System.out.println(sparkSubmit.parseArguments(argument));
         sparkSubmit.doSubmit(argument);
-    }
-
-    public JavaSparkContext SparkContext() {
-        return new JavaSparkContext(new SparkConf());
     }
 
     public String getSparkMaster() {
@@ -64,41 +99,6 @@ public class Spark extends SparkConfiguration {
         } else {
             setMaster("spark://" + getSparkMasterHost() + ":" +getSparkMasterPort());
             return "spark://" + getSparkMasterHost() + ":" +getSparkMasterPort();
-        }
-    }
-
-    public void setChildArgs(String[] ChildArgs) {
-        this.childArguments = ChildArgs;
-    }
-
-    public String[] getChildArguments() {
-        return new IO().removeNull(childArguments);
-    }
-
-    private void setSparkHome(String Directory) {
-        System.setProperty("SPARK_HOME", Directory);
-    }
-
-    private void setSparkMode(int Mode) {
-        if(Mode==1) {
-            System.setProperty("SPARK_YARN_MODE", "true");
-        } else {
-            System.out.println("Mode :");
-            System.out.println("1 : Yarn");
-        }
-    }
-
-    private void setSparkUser(String User) {
-        System.setProperty("SPARK_USER", User);
-    }
-
-    private void setSparkAttempt(int NumberOfAttempts) {
-        System.setProperty("MAX_APP_ATTEMPTS", String.valueOf(NumberOfAttempts));
-    }
-
-    private void setSparkArgument(String[] SparkArgument) {
-        for(int i=0; i<SparkArgument.length; i++) {
-            childArguments[i] = SparkArgument[i];
         }
     }
 
@@ -237,6 +237,12 @@ public class Spark extends SparkConfiguration {
             ConfigurationIndex = ConfigurationIndex + 2;
             Configuration[ConfigurationIndex-1] = "--conf";
             Configuration[ConfigurationIndex] = getSparkDriverMemoryOverhead();
+        }
+
+        if(getSparkDriverAllowMultipleContexts() != null) {
+            ConfigurationIndex = ConfigurationIndex + 2;
+            Configuration[ConfigurationIndex-1] = "--conf";
+            Configuration[ConfigurationIndex] = getSparkDriverAllowMultipleContexts();
         }
 
         if(getSparkExecutorMemory() != null) {
@@ -800,7 +806,15 @@ public class Spark extends SparkConfiguration {
          */
 
 
-        return new IO().removeNull(Configuration);
+        return new com.bayudwiyansatria.mat.Mat().removeNull(Configuration);
+    }
+
+    public void setChildArgs(String[] ChildArgs) {
+        this.SPARK_CHILD_ARGUMENTS = ChildArgs;
+    }
+
+    public String[] getChildArguments() {
+        return new com.bayudwiyansatria.mat.Mat().removeNull(SPARK_CHILD_ARGUMENTS);
     }
 }
 

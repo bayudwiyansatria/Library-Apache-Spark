@@ -26,8 +26,8 @@
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.bayudwiyansatria.environment.apache</groupId>
-	<artifactId>spark</artifactId>
+	<groupId>com.bayudwiyansatria</groupId>
+	<artifactId>env-apache-spark</artifactId>
 	<version>1.0</version>
 	<packaging>jar</packaging>
 
@@ -169,6 +169,7 @@
 		<sonatype.plugins.version>1.6.7</sonatype.plugins.version>
 		<github.plugins.version>0.12</github.plugins.version>
 		<bayudwiyansatria.version>1.1.7</bayudwiyansatria.version>
+		<bayudwiyansatria.ml.version>1.0</bayudwiyansatria.ml.version>
 		<apache-logging-log4j.version>2.11.2</apache-logging-log4j.version>
 		<scala-language.version>2.11.12</scala-language.version>
 		<apache-spark.version>2.4.0</apache-spark.version>
@@ -181,17 +182,12 @@
 	<dependencies>
 		<!-- Logging -->
 		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-simple</artifactId>
-			<version>${slf4j.version}</version>
-			<exclusions>
-				<exclusion>
-					<groupId>org.slf4j</groupId>
-					<artifactId>slf4j-api</artifactId>
-				</exclusion>
-			</exclusions>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+			<version>${apache-logging-log4j.version}</version>
+			<scope>test</scope>
 		</dependency>
-		
+
 		<!-- Test -->
 		<dependency>
 			<groupId>junit</groupId>
@@ -205,39 +201,19 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-			<version>${slf4j.version}</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.hamcrest</groupId>
-			<artifactId>hamcrest-core</artifactId>
-			<version>${hamcrest.version}</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.hamcrest</groupId>
-			<artifactId>hamcrest-library</artifactId>
-			<version>${hamcrest.version}</version>
-			<scope>test</scope>
-			<exclusions>
-				<exclusion>
-					<groupId>org.hamcrest</groupId>
-					<artifactId>hamcrest-core</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-api</artifactId>
-			<version>${apache-logging-log4j.version}</version>
-		</dependency>
+		
+		<!-- Required -->
 		<dependency>
 			<groupId>com.bayudwiyansatria</groupId>
 			<artifactId>core</artifactId>
 			<version>${bayudwiyansatria.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.bayudwiyansatria</groupId>
+			<artifactId>ml</artifactId>
+			<version>${bayudwiyansatria.ml.version}</version>
+			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.scala-lang</groupId>
@@ -477,7 +453,7 @@
 					<ignoreNonCompile>true</ignoreNonCompile>
 					<failOnWarning>false</failOnWarning>
 					<ignoredDependencies>
-						<ignoredDependency>org.slf4j:slf4j-simple</ignoredDependency>
+						<ignoredDependency>log4j:log4j</ignoredDependency>
 						<ignoredDependency>org.apache.logging.log4j:log4j-api</ignoredDependency>
 						<ignoredDependency>org.scala-lang:scala-library</ignoredDependency>
 						<ignoredDependency>org.apache.spark:spark-core_2.11</ignoredDependency>

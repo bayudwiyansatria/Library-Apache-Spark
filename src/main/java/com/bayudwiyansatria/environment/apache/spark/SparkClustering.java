@@ -22,15 +22,17 @@
  * SOFTWARE.
  */
 
-package com.bayudwiyansatria.environment.apache.spark.clustering;
+package com.bayudwiyansatria.environment.apache.spark;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.mllib.clustering.BisectingKMeansModel;
 import org.apache.spark.mllib.linalg.Vector;
 
-public class SparkClustering {
-    public int getOptimalNumberOfCluster(){
+public class SparkClustering extends SparkMatrix {
 
-        return 1;
+    public int[] AutomaticSingleLinkage(JavaRDD<String> data, int Interval){
+        double[][] newData = new SparkUtils().rdd_to_double(data);
+        System.out.println(new Spark().getSparkMaster());
+        return new com.bayudwiyansatria.ml.clustering.AutomaticClustering().SingleLinkage(newData,10);
     }
 
 	public int[] BisectingKMeans(JavaRDD<Vector> data, int NumberOfClusters){
@@ -50,21 +52,26 @@ public class SparkClustering {
         return cluster;
     }
 
-    public int[] AutomaticBisectingKMeans(JavaRDD<Vector> data, int Interval){
-        double[][] distanceMetric = new com.bayudwiyansatria.mat.Vector().getDistanceMetric(data);
-        int[] clusters = new int[data.length];
-        int length = data.length;
+    public int[] BisectingKMeans(double[][] data, int NumberOfClusters){
+        return BisectingKMeans(new SparkIO().readData(new SparkIO().readData(data)), NumberOfClusters);
+    }
 
-        int NumberOfCluster = 2;
-        int interval = Interval;
-        double[] variance;
-        double[] V = new com.bayudwiyansatria.mat.Mat().initArray(Interval + 1, 0.0);
-        double[] density = new com.bayudwiyansatria.mat.Mat().initArray(Interval + 1, 0.0);
-        double[] output = new double[2];
-        int[][] clusterTable = new int[Interval + 2][data.length];
+    public int[] BisectingKMeans(int[][] data, int NumberOfClusters){
+        return BisectingKMeans(new SparkIO().readData(new SparkIO().readData(data)), NumberOfClusters);
+    }
 
-        for(int i = 0; i < data.length; i++) {
-            clusters[i] = i;
+    public int[] BisectingKMeans(String[][] data, int NumberOfClusters){
+        return BisectingKMeans(new SparkIO().readData(new SparkIO().readData(data)), NumberOfClusters);
+    }
+
+    public Vector[] getCentroid(JavaRDD<Vector> data){
+        int NumberOfClusters = 2;
+        org.apache.spark.mllib.clustering.BisectingKMeans bkm = new org.apache.spark.mllib.clustering.BisectingKMeans().setK(NumberOfClusters);
+        BisectingKMeansModel model = bkm.run(data);
+        Vector[] clusterCenters = model.clusterCenters();
+        for (int i = 0; i < clusterCenters.length; i++) {
+            System.out.println("Cluster Center " + i + ": " + clusterCenters[i]);
         }
+        return clusterCenters;
     }
 }

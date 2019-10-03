@@ -24,8 +24,26 @@
 
 package com.bayudwiyansatria.environment.apache.spark;
 
+import org.apache.spark.api.java.JavaRDD;
+import java.util.List;
 
 class SparkUtils extends Spark {
+    public double[][] rdd_to_double(JavaRDD<String> data){
+        List<String> newData = data.collect();
+        double[][] doubleData = new double[newData.size()][newData.get(0).split(",").length];
+        for(int i=0; i<newData.size(); i++){
+            String[] array = newData.get(i).split(",");
+            for (int j = 0; j < array.length; j++) {
+                doubleData[i][j] = Double.parseDouble(array[j]);
+            }
+        }
+        return doubleData;
+    }
+
+    public int[][] rdd_to_int(JavaRDD<String> data){
+        return new com.bayudwiyansatria.utils.Utils().double_to_int(this.rdd_to_double(data));
+    }
+
     public String[] ParseSparkArguments(String[] Argument){
         String SparkMaster = Argument[1];
         if(SparkMaster.equals("yarn")){

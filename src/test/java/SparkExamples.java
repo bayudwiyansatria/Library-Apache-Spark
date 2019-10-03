@@ -22,22 +22,51 @@
  * SOFTWARE.
  */
 
-package com.bayudwiyansatria.environment.apache.spark;
+import com.bayudwiyansatria.environment.apache.spark.Spark;
+import com.bayudwiyansatria.environment.apache.spark.SparkClustering;
+import com.bayudwiyansatria.environment.apache.spark.SparkIO;
+import org.apache.spark.SparkConf;
+import org.apache.spark.SparkContext;
+import org.apache.spark.api.java.JavaRDD;
+import org.apache.spark.api.java.JavaSparkContext;
+import org.apache.spark.mllib.linalg.Vector;
 
 public class SparkExamples {
 	public static void main(String[] args){
 		System.out.println("##############################################################");
         System.out.println("##       Bayu Dwiyan Satria - Apache Spark Environment      ##");
         System.out.println("##############################################################");
-
+		/*
         Spark spark = new Spark();
-        spark.setAppName("Spark Environment");
-        spark.setMainClass("com.bayudwiyansatria.environment.apache.spark.SparkExamples");
+        spark.setAppName("Apache Spark Libraries");
+        spark.setMainClass("SparkExamples");
         spark.setSparkMasterHost("devops.bayudwiyansatria.com");
         spark.setSparkMasterPort("7077");
-        spark.setPrimaryResource("target/spark-1.0.jar");
+        spark.setPrimaryResource("target/env-apache-spark-1.0.jar");
         spark.setSparkConfiguration();
-		spark.SparkSubmit(spark.getSparkConfiguration());
+
+        new com.bayudwiyansatria.mat.Mat().print(spark.getPrimaryResource());
+		String[] jars = {spark.getPrimaryResource()};
+        String HDFSURI = "hdfs://devops.bayudwiyansatria.com:9000/home/bayudwiyansatria/resources/";
+        SparkConf SparkConf = new SparkConf().setAppName(spark.getAppName()).setMaster(spark.getSparkMaster()).setJars(jars);
+		JavaSparkContext SparkContext = new JavaSparkContext(SparkConf);
+		JavaRDD<String> data = new SparkIO().readData(SparkContext, "src/main/resources/ruspini.csv");
+
+        /* BISECTING KMEANS
+		int[] cluster = new SparkClustering().BisectingKMeans(new SparkIO().readData(data),4);
+		new com.bayudwiyansatria.mat.Mat().print(cluster);
+         */
+
+        //Vector[] centroid = new SparkClustering().getCentroid(new SparkIO().readData(data));
+		/*
+		long StartTime = System.currentTimeMillis();
+		int[] clusters = new SparkClustering().AutomaticSingleLinkage(data, 10);
+		long EndTime = System.currentTimeMillis();
+		float sec = (EndTime - StartTime) / 1000F; System.out.println(sec + " seconds");
+		*/
+
+
+
 
 	}
 }

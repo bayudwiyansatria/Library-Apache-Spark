@@ -23,8 +23,9 @@
  */
 
 package com.bayudwiyansatria.environment.apache.spark;
+import com.bayudwiyansatria.Core;
 
-public class SparkProperties {
+public class SparkProperties extends Core {
     /* See https://spark.apache.org/docs/latest/configuration.html for more information */
 
     /* =========================================== Application Properties =========================================== */
@@ -43,6 +44,9 @@ public class SparkProperties {
 
     // spark.driver.memoryOverhead = (none) ex: 0.10;
     private String SPARK_DRIVER_MEMORYOVERHEAD = null;
+
+    // spark.driver.allowMultipleContexts = false;
+    private String SPARK_DRIVER_ALLOWMULTIPLECONTEXTS = null;
 
     // spark.executor.memory = 1g;
     private String SPARK_EXECUTOR_MEMORY = null;
@@ -594,6 +598,14 @@ public class SparkProperties {
 
     public String getSparkDriverMemoryOverhead() {
         return SPARK_DRIVER_MEMORYOVERHEAD;
+    }
+
+    public void setSparkDriverAllowMultipleContexts(String AllowMultipleContext) {
+        this.SPARK_DRIVER_ALLOWMULTIPLECONTEXTS = "spark.driver.allowMultipleContexts=" + AllowMultipleContext;
+    }
+
+    public String getSparkDriverAllowMultipleContexts() {
+        return SPARK_DRIVER_ALLOWMULTIPLECONTEXTS;
     }
 
     protected void setSparkExecutorMemory(String ExecutorMemory) {
