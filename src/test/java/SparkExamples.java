@@ -35,7 +35,7 @@ public class SparkExamples {
         spark.setMainClass("com.bayudwiyansatria.environment.apache.spark.SparkExamples");
         spark.setSparkMasterHost("devops.bayudwiyansatria.com");
         spark.setSparkMasterPort("7077");
-        spark.setPrimaryResource("target/spark-1.0-SNAPSHOT.jar");
+        spark.setPrimaryResource("target/spark-1.0.jar");
         spark.setSparkConfiguration();
 		spark.SparkSubmit(spark.getSparkConfiguration());
 
