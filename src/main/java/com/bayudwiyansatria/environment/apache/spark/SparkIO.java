@@ -24,21 +24,19 @@
 
 package com.bayudwiyansatria.environment.apache.spark;
 
-
-import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaRDD;
-import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.mllib.linalg.Vector;
 import org.apache.spark.mllib.linalg.Vectors;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class SparkIO {
+public class SparkIO implements Serializable {
     public JavaRDD<String> readData(String filename){
         //partioning = DataSize (Mb) / HDFS (BlockSize);
-        return new Spark().getSparkContext().textFile(filename,6).cache();
+        return new Spark().getSparkContext().textFile(filename, 6).cache();
     }
 
     public JavaRDD<String> readData(String[][] data){
@@ -78,5 +76,17 @@ public class SparkIO {
             }
             return Vectors.dense(values);
         }).cache();
+    }
+
+    public JavaRDD<String> distanceMetric(JavaRDD<String> data) {
+        return data.map(mapping -> {
+            String[] array = mapping.split(",");
+            double[][] doubleData = new double[array.length][2];
+            double[] values = new double[array.length];
+            for (int i = 0; i < array.length; i++) {
+                values[i] = Double.parseDouble(array[i]);
+            }
+            return Arrays.deepToString(new SparkMatrix().getDistanceMetric(doubleData));
+        });
     }
 }

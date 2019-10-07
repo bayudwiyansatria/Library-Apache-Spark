@@ -62,7 +62,7 @@ public class SparkConfiguration extends SparkProperties {
 
     public String getSparkMasterHost(){
          if(SPARK_MASTER_HOST == null){
-            setSparkMasterHost("local[*]");
+            setSparkMasterHost("devops.bayudwiyansatria.com");
          }
         return SPARK_MASTER_HOST;
     }
@@ -116,7 +116,7 @@ public class SparkConfiguration extends SparkProperties {
 
     public String getAppName(){
         if(SPARK_APPLICATION_NAME == null){
-            setAppName("Hello World");
+            setAppName("Bayu Dwiyan Satria - Apache Spark Libraries");
         }
         return SPARK_APPLICATION_NAME;
     }

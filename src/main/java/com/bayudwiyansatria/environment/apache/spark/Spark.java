@@ -65,12 +65,17 @@ public class Spark extends SparkConfiguration {
 
     public JavaSparkContext getSparkContext() {
         Logger.getRootLogger().setLevel(Level.ERROR);
+        Logger.getLogger("org").setLevel(Level.ERROR);
+        Logger.getLogger("akka").setLevel(Level.OFF);
         return SPARK_JAVA_CONTEXT = new org.apache.spark.api.java.JavaSparkContext(getSparkContextConf());
     }
 
     public SparkConf getSparkContextConf(){
         Logger.getRootLogger().setLevel(Level.ERROR);
-        return SPARK_CONTEXT_CONF = new org.apache.spark.SparkConf().setMaster(getSparkMaster()).setAppName(getAppName());
+        Logger.getLogger("org").setLevel(Level.ERROR);
+        Logger.getLogger("akka").setLevel(Level.OFF);
+        String[] jars = {"target/env-apache-spark-1.0.jar"};
+        return SPARK_CONTEXT_CONF = new org.apache.spark.SparkConf().setMaster(getSparkMaster()).setAppName(getAppName()).setJars(jars);
     }
 
     public void setSparkConfiguration() {

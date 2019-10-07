@@ -27,6 +27,8 @@
 
 # Bayu Dwiyan Satria - Apache Spark Libraries
 
+![Github Actions](https://github.com/bayudwiyansatria/Library-Apache-Spark/workflows/Github%20Action/badge.svg)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/f2834a4963354432a9b5aec6a540c1b6)](https://www.codacy.com/manual/bayudwiyansatria/Library-Apache-Spark?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=bayudwiyansatria/Library-Apache-Spark&amp;utm_campaign=Badge_Grade)
 **Official Website: https://www.bayudwiyansatria.com/**
 
 Apache Spark Libraries.

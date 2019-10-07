@@ -25,10 +25,14 @@
 package com.bayudwiyansatria.environment.apache.spark;
 
 import org.apache.spark.api.java.JavaRDD;
+import org.apache.spark.rdd.RDD;
+
 import java.util.List;
 
-class SparkUtils extends Spark {
-    public double[][] rdd_to_double(JavaRDD<String> data){
+public class SparkUtils extends Spark {
+
+
+    public double[][] javaRDD_to_double(JavaRDD<String> data) {
         List<String> newData = data.collect();
         double[][] doubleData = new double[newData.size()][newData.get(0).split(",").length];
         for(int i=0; i<newData.size(); i++){
@@ -40,8 +44,12 @@ class SparkUtils extends Spark {
         return doubleData;
     }
 
-    public int[][] rdd_to_int(JavaRDD<String> data){
-        return new com.bayudwiyansatria.utils.Utils().double_to_int(this.rdd_to_double(data));
+    public int[][] javaRDD_to_int(JavaRDD<String> data){
+        return new com.bayudwiyansatria.utils.Utils().double_to_int(this.javaRDD_to_double(data));
+    }
+
+    public RDD<?> javaRDD_to_rdd(JavaRDD<?> data){
+        return data.rdd();
     }
 
     public String[] ParseSparkArguments(String[] Argument){

@@ -26,13 +26,19 @@ package com.bayudwiyansatria.environment.apache.spark;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.mllib.clustering.BisectingKMeansModel;
 import org.apache.spark.mllib.linalg.Vector;
+import org.apache.spark.mllib.linalg.Vectors;
 
 public class SparkClustering extends SparkMatrix {
 
     public int[] AutomaticSingleLinkage(JavaRDD<String> data, int Interval){
-        double[][] newData = new SparkUtils().rdd_to_double(data);
+        double[][] newData = new SparkUtils().javaRDD_to_double(data);
         System.out.println(new Spark().getSparkMaster());
         return new com.bayudwiyansatria.ml.clustering.AutomaticClustering().SingleLinkage(newData,10);
+    }
+
+    public int[] AutomaticSingleLinkage(double[][] data, int Interval){
+        System.out.println(new Spark().getSparkMaster());
+        return new com.bayudwiyansatria.ml.clustering.AutomaticClustering().SingleLinkage(data,10);
     }
 
 	public int[] BisectingKMeans(JavaRDD<Vector> data, int NumberOfClusters){
@@ -52,17 +58,6 @@ public class SparkClustering extends SparkMatrix {
         return cluster;
     }
 
-    public int[] BisectingKMeans(double[][] data, int NumberOfClusters){
-        return BisectingKMeans(new SparkIO().readData(new SparkIO().readData(data)), NumberOfClusters);
-    }
-
-    public int[] BisectingKMeans(int[][] data, int NumberOfClusters){
-        return BisectingKMeans(new SparkIO().readData(new SparkIO().readData(data)), NumberOfClusters);
-    }
-
-    public int[] BisectingKMeans(String[][] data, int NumberOfClusters){
-        return BisectingKMeans(new SparkIO().readData(new SparkIO().readData(data)), NumberOfClusters);
-    }
 
     public Vector[] getCentroid(JavaRDD<Vector> data){
         int NumberOfClusters = 2;
@@ -74,4 +69,39 @@ public class SparkClustering extends SparkMatrix {
         }
         return clusterCenters;
     }
+
+    public double[] getVariance(JavaRDD<Vector> data, int[] clusters){
+        int[] _mm = new com.bayudwiyansatria.utils.Utils().getUnique(clusters);
+        double[] Variance = new com.bayudwiyansatria.mat.Mat().initArray(2, 0.0);
+        Vector[] centroid = getCentroid(data);
+		for(int i=0; i<centroid.length; i++){
+			System.out.println(centroid[i]);
+		}
+
+        double _ttl = 0.0;
+        int[] newMM = new int[_mm.length];
+        /*
+        if (_mm.length > 1) {
+            double distanceVector;
+            double distance;
+            double varianceWithin = _ttl / (double)(data.length - _mm.length);
+            distanceVector = 0.0;
+            double[] grandMean = this.getCentroid(centroid);
+            for(int i = 0; i < _mm.length; ++i) {
+                distance = this.getDistanceAbsolute(centroid[i], grandMean);
+                distanceVector += (double)newMM[i] * distance * distance;
+            }
+
+            double varianceBetween = distanceVector / (double)(_mm.length - 1);
+            Variance[0] = varianceWithin;
+            Variance[1] = varianceBetween;
+        }
+
+         */
+
+        //return Variance;
+		double[] x = {};
+		return x;
+
+	}
 }
