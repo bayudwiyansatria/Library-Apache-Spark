@@ -28,7 +28,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.bayudwiyansatria</groupId>
 	<artifactId>env-apache-spark</artifactId>
-	<version>1.0</version>
+	<version>1.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<!-- Project Information -->
@@ -120,7 +120,6 @@
 		<checkstyle.version>8.11</checkstyle.version>
 		
 		<!-- JVM Properties -->
-		<java.debug>true</java.debug>
 		<java.version>1.8</java.version>
 		<maven.version>3.6.1</maven.version>
 		<java.optimize>true</java.optimize>
@@ -131,16 +130,14 @@
 		<maven-clover-plugin.version>4.3.0</maven-clover-plugin.version>
 		<maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
 		<maven-dependency-plugin.version>3.1.1</maven-dependency-plugin.version>
-		<maven-enforcer-plugin.version>3.0.0-M2</maven-enforcer-plugin.version>
-		<maven-exec-plugin.version>1.6.0</maven-exec-plugin.version>
-		<maven-extra-enforcer-rules.version>1.0-beta-9</maven-extra-enforcer-rules.version>
 		<maven-javadoc-plugin.version>3.1.0</maven-javadoc-plugin.version>
 		<maven-jar-plugin.version>3.1.2</maven-jar-plugin.version>
+		<maven-enforcer-plugin.version>3.0.0-M2</maven-enforcer-plugin.version>
+		<maven-exec-plugin.version>1.6.0</maven-exec-plugin.version>
 		<maven-license-plugin.version>3.0</maven-license-plugin.version>
 		<maven-os-plugin.version>1.5.0.Final</maven-os-plugin.version>
 		<maven-pmd-plugin.version>3.10.0</maven-pmd-plugin.version>
 		<maven-project-info-reports-plugin.version>2.9</maven-project-info-reports-plugin.version>
-		<maven-jxr-plugin>2.3</maven-jxr-plugin>
 		<maven-shade-plugin.version>3.2.1</maven-shade-plugin.version>
 		<maven-site-plugin.version>3.7.1</maven-site-plugin.version>
 		<maven-source-plugin.version>3.0.1</maven-source-plugin.version>
@@ -154,11 +151,12 @@
 		<maven-install-plugin.version>2.4</maven-install-plugin.version>
 		<maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>
 		<maven-release-plugin.version>2.5.3</maven-release-plugin.version>
+		<maven-extra-enforcer-rules.version>1.0-beta-9</maven-extra-enforcer-rules.version>
 		
 		<!-- Extra Properties -->
 		<maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
 		<maven-scm-plugin.version>1.11.2</maven-scm-plugin.version>
-		<maven-scm-provider-gitexe.version>1.9.5</maven-scm-provider-gitexe.version>
+		<maven-scm-provider-gitexe.version>1.11.2</maven-scm-provider-gitexe.version>
 		<maven-changelog-plugin.version>2.3</maven-changelog-plugin.version>
 		<maven-jxr-plugin.version>2.5</maven-jxr-plugin.version>
 		
@@ -168,11 +166,11 @@
 		<slf4j.version>1.7.25</slf4j.version>
 		<sonatype.plugins.version>1.6.7</sonatype.plugins.version>
 		<github.plugins.version>0.12</github.plugins.version>
-		<bayudwiyansatria.version>1.1.7</bayudwiyansatria.version>
+		<bayudwiyansatria.core.version>1.1.8-SNAPSHOT</bayudwiyansatria.core.version>
 		<bayudwiyansatria.ml.version>1.0</bayudwiyansatria.ml.version>
-		<apache-logging-log4j.version>2.11.2</apache-logging-log4j.version>
-		<scala-language.version>2.11.12</scala-language.version>
-		<apache-spark.version>2.4.0</apache-spark.version>
+		<apache-logging-log4j.version>2.12.1</apache-logging-log4j.version>
+		<scala-language.version>2.11.2</scala-language.version>
+		<apache-spark.version>2.4.4</apache-spark.version>
 	</properties>
 	
 	<!-- Project Dependencies -->
@@ -194,21 +192,19 @@
 			<artifactId>junit</artifactId>
 			<version>${junit.version}</version>
 			<scope>test</scope>
-			<exclusions>
-				<exclusion>
-					<groupId>org.hamcrest</groupId>
-					<artifactId>hamcrest-core</artifactId>
-				</exclusion>
-			</exclusions>
+			<exclusions/>
 		</dependency>
 		
 		<!-- Required -->
 		<dependency>
 			<groupId>com.bayudwiyansatria</groupId>
 			<artifactId>core</artifactId>
-			<version>${bayudwiyansatria.version}</version>
-			<scope>compile</scope>
+			<version>${bayudwiyansatria.core.version}</version>
 			<exclusions>
+				<exclusion>
+					<groupId>org.hamcrest</groupId>
+					<artifactId>hamcrest-core</artifactId>
+				</exclusion>
 				<exclusion>
 					<groupId>org.slf4j</groupId>
 					<artifactId>slf4j-api</artifactId>
@@ -218,8 +214,8 @@
 					<artifactId>slf4j-simple</artifactId>
 				</exclusion>
 				<exclusion>
-					<groupId>log4j</groupId>
-					<artifactId>log4j</artifactId>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-log4j12</artifactId>
 				</exclusion>
 			</exclusions>
 		</dependency>
@@ -227,8 +223,11 @@
 			<groupId>com.bayudwiyansatria</groupId>
 			<artifactId>ml</artifactId>
 			<version>${bayudwiyansatria.ml.version}</version>
-			<scope>compile</scope>
 			<exclusions>
+				<exclusion>
+					<groupId>org.hamcrest</groupId>
+					<artifactId>hamcrest-core</artifactId>
+				</exclusion>
 				<exclusion>
 					<groupId>org.slf4j</groupId>
 					<artifactId>slf4j-api</artifactId>
@@ -238,8 +237,8 @@
 					<artifactId>slf4j-simple</artifactId>
 				</exclusion>
 				<exclusion>
-					<groupId>log4j</groupId>
-					<artifactId>log4j</artifactId>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-log4j12</artifactId>
 				</exclusion>
 			</exclusions>
 		</dependency>
@@ -247,6 +246,16 @@
 			<groupId>org.scala-lang</groupId>
 			<artifactId>scala-library</artifactId>
 			<version>${scala-language.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-api</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-simple</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.spark</groupId>
@@ -266,6 +275,11 @@
 		<dependency>
 			<groupId>org.apache.spark</groupId>
 			<artifactId>spark-mllib_2.11</artifactId>
+			<version>${apache-spark.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.spark</groupId>
+			<artifactId>spark-yarn_2.11</artifactId>
 			<version>${apache-spark.version}</version>
 		</dependency>
 	</dependencies>
@@ -320,7 +334,7 @@
 		</resources>
 		<testResources>
 			<testResource>
-				<directory>${project.basedir}/src/test/resources</directory>
+				<directory>${project.basedir}/src/main/resources</directory>
 				<includes>
 					<include>configuration.xml</include>
 				</includes>
@@ -350,6 +364,14 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-enforcer-plugin</artifactId>
+        <version>${maven-enforcer-plugin.version}</version>
+				<configuration>
+					<rules><dependencyConvergence/></rules>
+				</configuration>
+    </plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -387,6 +409,9 @@
 						<include>src/test/**/*</include>
 						<include>pom.xml</include>
 					</includes>
+					<excludes>
+						<exclude>src/main/resources/*</exclude>
+					</excludes>
 				</configuration>
 				<executions>
 					<execution>
@@ -488,6 +513,7 @@
 						<ignoredDependency>org.apache.spark:spark-catalyst_2.11</ignoredDependency>
 						<ignoredDependency>org.apache.spark:spark-network-common_2.11</ignoredDependency>
 						<ignoredDependency> org.apache.spark:spark-launcher_2.11</ignoredDependency>
+						<ignoredDependency> org.apache.spark:spark-yarn_2.11</ignoredDependency>
 					</ignoredDependencies>
 				</configuration>
 				<executions>
@@ -495,7 +521,7 @@
 						<id>analyze-dependencies</id>
 						<phase>verify</phase>
 						<goals>
-							<goal>analyze-only</goal>
+							<goal>analyze</goal>
 						</goals>
 					</execution>
 				</executions>

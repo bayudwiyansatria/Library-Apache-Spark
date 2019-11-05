@@ -24,19 +24,13 @@
 
 package com.bayudwiyansatria.environment.apache.spark;
 
-import org.apache.log4j.Level;
-import org.apache.spark.SparkConf;
-import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.deploy.SparkSubmit;
-import org.apache.log4j.Logger;
 
 public class Spark extends SparkConfiguration {
     private String SPARK_HOME = null;
     private String SPARK_USER = null;
     private String[] SPARK_CONFIGURATION = new String[30];
     private String[] SPARK_CHILD_ARGUMENTS = new String[3];
-    private SparkConf SPARK_CONTEXT_CONF;
-    private JavaSparkContext SPARK_JAVA_CONTEXT;
 
     public void setSparkHome(String Directory) {
         System.setProperty("SPARK_HOME", Directory);
@@ -54,28 +48,12 @@ public class Spark extends SparkConfiguration {
 
     public String getSparkUser() {
         if(SPARK_USER == null) {
-            setSparkUser(getUsername());
         }
         return SPARK_USER;
     }
 
     private void setSparkAttempt(int NumberOfAttempts) {
         System.setProperty("MAX_APP_ATTEMPTS", String.valueOf(NumberOfAttempts));
-    }
-
-    public JavaSparkContext getSparkContext() {
-        Logger.getRootLogger().setLevel(Level.ERROR);
-        Logger.getLogger("org").setLevel(Level.ERROR);
-        Logger.getLogger("akka").setLevel(Level.OFF);
-        return SPARK_JAVA_CONTEXT = new org.apache.spark.api.java.JavaSparkContext(getSparkContextConf());
-    }
-
-    public SparkConf getSparkContextConf(){
-        Logger.getRootLogger().setLevel(Level.ERROR);
-        Logger.getLogger("org").setLevel(Level.ERROR);
-        Logger.getLogger("akka").setLevel(Level.OFF);
-        String[] jars = {"target/env-apache-spark-1.0.jar"};
-        return SPARK_CONTEXT_CONF = new org.apache.spark.SparkConf().setMaster(getSparkMaster()).setAppName(getAppName()).setJars(jars);
     }
 
     public void setSparkConfiguration() {
@@ -795,21 +773,7 @@ public class Spark extends SparkConfiguration {
         if(getPrimaryResource() != null) {
             ConfigurationIndex = ConfigurationIndex + 2;
             Configuration[ConfigurationIndex] = getPrimaryResource();
-            //System.out.println("Submit Application : " + getPrimaryResource());
         }
-
-        /*
-        if(getChildArguments().length >= 0) {
-            for(int i=0; i<getChildArguments().length; i++) {
-                if(getChildArguments()[i] != null) {
-                    ConfigurationIndex = ConfigurationIndex + 2;
-                    sparkConfiguration[ConfigurationIndex] = getChildArguments()[i];
-                }
-            }
-        }
-
-         */
-
 
         return new com.bayudwiyansatria.mat.Mat().removeNull(Configuration);
     }

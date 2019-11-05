@@ -25,16 +25,23 @@
 package com.bayudwiyansatria.environment.apache.spark;
 
 import org.apache.spark.api.java.JavaRDD;
-import org.apache.spark.rdd.RDD;
-
+import org.apache.spark.api.java.JavaSparkContext;
+import java.util.Arrays;
 import java.util.List;
 
 public class SparkUtils extends Spark {
+    public JavaRDD<String> string_to_rdd( JavaSparkContext SparkContext, String[] data){
+       return string_to_rdd ( SparkContext, data, 1 );
+    }
+    
+    public JavaRDD<String> string_to_rdd(JavaSparkContext SparkContext, String[] data, int Slices){
+        List<String> list = Arrays.asList(data);
+        return SparkContext.parallelize(list, Slices);
+    }
 
-
-    public double[][] javaRDD_to_double(JavaRDD<String> data) {
+    public double[][] rdd_to_double(JavaRDD<String> data) {
         List<String> newData = data.collect();
-        double[][] doubleData = new double[newData.size()][newData.get(0).split(",").length];
+        double[][] doubleData = new double [newData.size()] [newData.get(0).split(",").length];
         for(int i=0; i<newData.size(); i++){
             String[] array = newData.get(i).split(",");
             for (int j = 0; j < array.length; j++) {
@@ -42,35 +49,5 @@ public class SparkUtils extends Spark {
             }
         }
         return doubleData;
-    }
-
-    public int[][] javaRDD_to_int(JavaRDD<String> data){
-        return new com.bayudwiyansatria.utils.Utils().double_to_int(this.javaRDD_to_double(data));
-    }
-
-    public RDD<?> javaRDD_to_rdd(JavaRDD<?> data){
-        return data.rdd();
-    }
-
-    public String[] ParseSparkArguments(String[] Argument){
-        String SparkMaster = Argument[1];
-        if(SparkMaster.equals("yarn")){
-            this.setDeployMode("cluster");
-        } else if(SparkMaster.contains("local")){
-            setDeployMode("client");
-        } else {
-            setDeployMode(getDeployMode());
-        }
-
-        setSparkConfiguration();
-        return getSparkConfiguration();
-    }
-
-    public void SparkOptimizeConfiguration(){
-        setExecutorMemory("4g");
-        setDriverMemory("1g");
-        setExecutorCores("5");
-        setDriverCores("1");
-        setNumExecutors("3");
     }
 }
