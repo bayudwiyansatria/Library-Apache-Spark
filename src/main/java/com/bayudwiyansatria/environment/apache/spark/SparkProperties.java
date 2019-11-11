@@ -37,43 +37,43 @@ public class SparkProperties extends Core {
     private String SPARK_DRIVER_CORES = null;
 
     // spark.driver.maxResultSize = 1g;
-    private String SPARK_DRIVER_MAXRESULTSIZE = null;
+    private String SPARK_DRIVER_MAX_RESULT_SIZE = null;
 
     // spark.driver.memory = 1g;
     private String SPARK_DRIVER_MEMORY = null;
 
     // spark.driver.memoryOverhead = (none) ex: 0.10;
-    private String SPARK_DRIVER_MEMORYOVERHEAD = null;
+    private String SPARK_DRIVER_MEMORY_OVERHEAD = null;
 
     // spark.driver.allowMultipleContexts = false;
-    private String SPARK_DRIVER_ALLOWMULTIPLECONTEXTS = null;
+    private String SPARK_DRIVER_ALLOW_MULTIPLE_CONTEXT = null;
 
     // spark.executor.memory = 1g;
     private String SPARK_EXECUTOR_MEMORY = null;
 
     // spark.executor.pyspark.memory =
-    private String SPARK_EXECUTOR_PYSPARK_MEMORY = null;
+    private String SPARK_EXECUTOR_PY_SPARK_MEMORY = null;
 
     // spark.executor.memoryOverhead = (none) ex: 0.10;
-    private String SPARK_EXECUTOR_MEMORYOVERHEAD = null;
+    private String SPARK_EXECUTOR_MEMORY_OVERHEAD = null;
 
     // spark.extraListeners = (none);
-    private String SPARK_EXTRALISTENER = null;
+    private String SPARK_EXTRA_LISTENER = null;
 
     // spark.local.dir = /tmp
     private String SPARK_LOCAL_DIR = null;
 
     // spark.logConf = false;
-    private String SPARK_LOGCONF = null;
+    private String SPARK_LOG_CONF = null;
 
     // spark.master = (none);
     private String SPARK_MASTER = null;
 
     // spark.submit.deployMode = (none);
-    private String SPARK_SUBMIT_DEPLOYMODE = null;
+    private String SPARK_SUBMIT_DEPLOY_MODE = null;
 
     // spark.log.callerContext = (none);
-    private String SPARK_LOG_CALLERCONTEXT = null;
+    private String SPARK_LOG_CALLER_CONTEXT = null;
 
     // spark.driver.supervise = false;
     private String SPARK_DRIVER_SUPERVISE = null;
@@ -83,31 +83,31 @@ public class SparkProperties extends Core {
     /* ===========================================   Runtime Environment  =========================================== */
 
     // spark.driver.extraClassPath = (none);
-    private String SPARK_DRIVER_EXTRACLASSPATH = null;
+    private String SPARK_DRIVER_EXTRA_CLASS_PATH = null;
 
     // spark.driver.extraJavaOptions = -verbose:gc -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+UseG1GC -XX:+UseCompressedOops;
-    private String SPARK_DRIVER_EXTRAJAVAOPTIONS = null;
+    private String SPARK_DRIVER_EXTRA_JAVA_OPTION = null;
 
     // spark.driver.extraLibraryPath = (none);
-    private String SPARK_DRIVER_EXTRALIBRARYPATH = null;
+    private String SPARK_DRIVER_EXTRA_LIBRARY_PATH = null;
 
     // spark.driver.userClassPathFirst = false;
-    private String SPARK_DRIVER_USERCLASSPATHFIRST = null;
+    private String SPARK_DRIVER_USER_CLASS_PATH_FIRST = null;
 
     // spark.executor.extraClassPath = (none);
-    private String SPARK_EXECUTOR_EXTRACLASSPATH = null;
+    private String SPARK_EXECUTOR_EXTRA_CLASS_PATH = null;
 
     // spark.executor.extraJavaOptions = (none);
-    private String SPARK_EXECUTOR_EXTRAJAVAOPTIONS = null;
+    private String SPARK_EXECUTOR_EXTRA_JAVA_OPTION = null;
 
     // spark.executor.extraLibraryPath = (none);
-    private String SPARK_EXECUTOR_EXTRALIBRARYPATH = null;
+    private String SPARK_EXECUTOR_EXTRA_LIBRARY_PATH = null;
 
     // spark.executor.logs.rolling.maxRetainedFiles = (none);
-    private String SPARK_EXECUTOR_LOGS_ROLLNG_MAXRETAINEDFILES = null;
+    private String SPARK_EXECUTOR_LOGS_ROLLING_MAX_RETAINED_FILES = null;
 
     // spark.executor.logs.rolling.enableCompression = false;
-    private String SPARK_EXECUTOR_LOGS_ROLLING_ENABLECOMPRESSION = null;
+    private String SPARK_EXECUTOR_LOGS_ROLLING_ENABLE_COMPRESSION = null;
 
     // spark.executor.logs.rolling.maxSize = (none);
     private String SPARK_EXECUTOR_LOGS_ROLLING_MAXSIZE = null;
@@ -119,10 +119,10 @@ public class SparkProperties extends Core {
     private String SPARK_EXECUTOR_LOGS_ROLLING_TIME_INTERVAL = null;
 
     // spark.executor.userClassPathFirst = false;
-    private String SPARK_EXECUTOR_USERCLASSPATHFIRST = null;
+    private String SPARK_EXECUTOR_USER_CLASS_PATH_FIRST = null;
 
     // spark.executorEnv.[EnvironmentVariableName] = (none);
-    private String SPARK_EXECUTORENV = null;
+    private String SPARK_EXECUTOR_ENV = null;
 
     // spark.redaction.regex = (?i)secret|password;
     private String SPARK_REDACTION_REGEX = null;
@@ -143,7 +143,7 @@ public class SparkProperties extends Core {
     private String SPARK_FILES = null;
 
     // spark.submit.pyFiles =
-    private String SPARK_SUBMIT_PYFILES = null;
+    private String SPARK_SUBMIT_PY_FILES = null;
 
     // spark.jars =
     private String SPARK_JARS = null;
@@ -158,32 +158,32 @@ public class SparkProperties extends Core {
     private String SPARK_JARS_IVY = null;
 
     // spark.jars.ivySettings =
-    private String SPARK_JARS_IVYSETTINGS = null;
+    private String SPARK_JARS_IVY_SETTINGS = null;
 
     // spark.jars.repositories =
     private String SPARK_JARS_REPOSITORIES = null;
 
     // spark.pyspark.driver.python =
-    private String SPARK_PYSPARK_DRIVER_PYTHON = null;
+    private String SPARK_PY_SPARK_DRIVER_PYTHON = null;
 
     // spark.pyspark.python =
-    private String SPARK_PYSPARK_PYTHON = null;
+    private String SPARK_PY_SPARK_PYTHON = null;
 
     /* ===========================================   Runtime Environment  =========================================== */
 
     /* ===========================================     Shuffle Behavior   =========================================== */
 
     // spark.reducer.maxSizeInFlight = 48m;
-    private String SPARK_REDUCER_MAXSIZEINFLIGHT = null;
+    private String SPARK_REDUCER_MAX_SIZE_IN_FLIGHT = null;
 
     // spark.reducer.maxReqsInFlight = Int.MaxValue;
-    private String SPARK_REDUCER_MAXREQSINFLIGTH = null;
+    private String SPARK_REDUCER_MAX_REQ_IN_FLIGHT = null;
 
     // spark.reducer.maxBlocksInFlightPerAddress = Int.MaxValue;
-    private String SPARK_REDUCER_MAXBLOCKSINFLIGHTPERADDRESS = null;
+    private String SPARK_REDUCER_MAX_BLOCKS_IN_FLIGHT_PER_ADDRESS = null;
 
     // spark.maxRemoteBlockSizeFetchToMem = Int.MaxValue - 512;
-    private String SPARK_MAXREMOTEBLOCKSIZEFETCHTOMEM = null;
+    private String SPARK_MAX_REMOTE_BLOCK_SIZE_FETCH_TO_MEMORY = null;
 
     // spark.shuffle.compress = true;
     private String SPARK_SHUFFLE_COMPRESS = null;
@@ -192,16 +192,16 @@ public class SparkProperties extends Core {
     private String SPARK_SHUFFLE_FILE_BUFFER = null;
 
     // spark.shuffle.io.maxRetries = 3;
-    private String SPARK_SHUFFLE_IO_MAXRETRIES = null;
+    private String SPARK_SHUFFLE_IO_MAX_RETRIES = null;
 
     // spark.shuffle.io.numConnectionsPerPeer = 1;
-    private String SPARK_SHUFFLE_IO_NUMCONNECTIONSPERPEER = null;
+    private String SPARK_SHUFFLE_IO_NUM_CONNECTIONS_PER_PEER = null;
 
     // spark.shuffle.io.preferDirectBufs = true;
-    private String SPARK_SHUFFLE_IO_PREFERDIRECTBUFS = null;
+    private String SPARK_SHUFFLE_IO_PREFER_DIRECT_BUFFERS = null;
 
     // spark.shuffle.io.retryWait = 5s;
-    private String SPARK_SHUFFLE_IO_RETRYWAIT = null;
+    private String SPARK_SHUFFLE_IO_RETRY_WAIT = null;
 
     // spark.shuffle.service.enabled = false;
     private String SPARK_SHUFFLE_SERVICE_ENABLED = null;
@@ -213,16 +213,16 @@ public class SparkProperties extends Core {
     private String SPARK_SHUFFLE_SERVICE_INDEX_CACHE_SIZE = null;
 
     // spark.shuffle.maxChunksBeingTransferred = Long.MAX_VALUE;
-    private String SPARK_SHUFFLE_MAXCHUNKSBEINGTRANSFERRED = null;
+    private String SPARK_SHUFFLE_MAX_CHUNKS_BEING_TRANSFERRED = null;
 
     // spark.shuffle.sort.bypassMergeThreshold = 200;
-    private String SPARK_SHUFFLE_SORT_BYPASSMERGETHRESHOLD = null;
+    private String SPARK_SHUFFLE_SORT_BYPASS_MERGE_THRESHOLD = null;
 
     // spark.shuffle.spill.compress = true;
     private String SPARK_SHUFFLE_SPILL_COMPRESS = null;
 
     // spark.shuffle.accurateBlockThreshold = 100 * 1024 * 1024
-    private String SPARK_SHUFFLE_ACCURATEBLOCKTHRESHOLD = null;
+    private String SPARK_SHUFFLE_ACCURATE_BLOCK_THRESHOLD = null;
 
     // spark.shuffle.registration.timeout = 5000;
     private String SPARK_SHUFFLE_REGISTRATION_TIMEOUT = null;
@@ -235,25 +235,25 @@ public class SparkProperties extends Core {
     /* ===========================================        Spark UI        =========================================== */
 
     // spark.eventLog.logBlockUpdates.enabled = false;
-    private String SPARK_EVENTLOG_LOGBLOCKUPDATES_ENABLED = null;
+    private String SPARK_EVENT_LOG_LOGBLOCKUPDATES_ENABLED = null;
 
     // spark.eventLog.longForm.enabled = false;
-    private String SPARK_EVENTLOG_LONGFORM_ENABLED = null;
+    private String SPARK_EVENT_LOG_LONGFORM_ENABLED = null;
 
     //spark.eventLog.compress = false;
-    private String SPARK_EVENTLOG_COMPRESS = null;
+    private String SPARK_EVENT_LOG_COMPRESS = null;
 
     // spark.eventLog.dir = file://tmp/spark-events;
-    private String SPARK_EVENTLOG_DIR = null;
+    private String SPARK_EVENT_LOG_DIR = null;
 
     // spark.eventLog.enabled = false;
-    private String SPARK_EVENTLOG_ENABLED = null;
+    private String SPARK_EVENT_LOG_ENABLED = null;
 
     // spark.eventLog.overwrite = false;
-    private String SPARK_EVENTLOG_OVERWRITE = null;
+    private String SPARK_EVENT_LOG_OVERWRITE = null;
 
     // spark.eventLog.buffer.kb = 100k;
-    private String SPARK_EVENTLOG_BUFFER_KB = null;
+    private String SPARK_EVENT_LOG_BUFFER_KB = null;
 
     // spark.ui.dagGraph.retainedRootRDDs = Int.Int.MaxValue;
     private String SPARK_UI_DAGGRAPH_RETAINEDROOTRDDS = null;
@@ -452,31 +452,31 @@ public class SparkProperties extends Core {
     /* ===========================================         Dynamic Allocation    ==================================== */
 
     // spark.dynamicAllocation.enabled = false;
-    private String SPARK_DYNAMICALLOCATION_ENABLED = null;
+    private String SPARK_DYNAMIC_ALLOCATION_ENABLED = null;
 
     // spark.dynamicAllocation.executorIdleTimeout = 60s;
-    private String SPARK_DYNAMICALLOCATION_EXECUTORIDLETIMEOUT = null;
+    private String SPARK_DYNAMIC_ALLOCATION_EXECUTORIDLETIMEOUT = null;
 
     // spark.dynamicAllocation.cachedExecutorIdleTimeout = infinity;
-    private String SPARK_DYNAMICALLOCATION_CACHEDEXECUTORIDLETIMEOUT = null;
+    private String SPARK_DYNAMIC_ALLOCATION_CACHEDEXECUTORIDLETIMEOUT = null;
 
     // spark.dynamicAllocation.initialExecutors = spark.dynamicAllocation.minExecutors;
-    private String SPARK_DYNAMICALLOCATION_INITIALEXECUTORS = null;
+    private String SPARK_DYNAMIC_ALLOCATION_INITIALEXECUTORS = null;
 
     // spark.dynamicAllocation.maxExecutors = infinity;
-    private String SPARK_DYNAMICALLOCATION_MAXEXECUTORS = null;
+    private String SPARK_DYNAMIC_ALLOCATION_MAXEXECUTORS = null;
 
     // spark.dynamicAllocation.minExecutors = 0;
-    private String SPARK_DYNAMICALLOCATION_MINEXECUTORS = null;
+    private String SPARK_DYNAMIC_ALLOCATION_MINEXECUTORS = null;
 
     // spark.dynamicAllocation.executorAllocationRatio = 1;
-    private String SPARK_DYNAMICALLOCATION_EXECUTORALLOCATIONRATIO = null;
+    private String SPARK_DYNAMIC_ALLOCATION_EXECUTORALLOCATIONRATIO = null;
 
     // spark.dynamicAllocation.schedulerBacklogTimeout = 1s;
-    private String SPARK_DYNAMICALLOCATION_SCHEDULERBACKLOGTIMEOUT = null;
+    private String SPARK_DYNAMIC_ALLOCATION_SCHEDULERBACKLOGTIMEOUT = null;
 
     // spark.dynamicAllocation.sustainedSchedulerBacklogTimeout = schedulerBacklogTimeout;
-    private String SPARK_DYNAMICALLOCATION_SUSTAINEDSCHEDULERBACKLOGTIMEOUT = null;
+    private String SPARK_DYNAMIC_ALLOCATION_SUSTAINEDSCHEDULERBACKLOGTIMEOUT = null;
 
     /* ===========================================         Dynamic Allocation    ==================================== */
 
@@ -577,11 +577,11 @@ public class SparkProperties extends Core {
     }
 
     public void setSparkDriverMaxResultSize(String ResultSize) {
-        this.SPARK_DRIVER_MAXRESULTSIZE = "spark.driver.maxResultSize="+ResultSize;
+        this.SPARK_DRIVER_MAX_RESULT_SIZE = "spark.driver.maxResultSize="+ResultSize;
     }
 
     public String getSparkDriverMaxResultSize() {
-        return SPARK_DRIVER_MAXRESULTSIZE;
+        return SPARK_DRIVER_MAX_RESULT_SIZE;
     }
 
     protected void setSparkDriverMemory(String DriverMemory) {
@@ -593,19 +593,19 @@ public class SparkProperties extends Core {
     }
 
     public void setSparkDriverMemoryOverhead(String MemoryOverhead) {
-        this.SPARK_DRIVER_MEMORYOVERHEAD = "spark.driver.memoryOverhead="+MemoryOverhead;
+        this.SPARK_DRIVER_MEMORY_OVERHEAD = "spark.driver.memoryOverhead="+MemoryOverhead;
     }
 
     public String getSparkDriverMemoryOverhead() {
-        return SPARK_DRIVER_MEMORYOVERHEAD;
+        return SPARK_DRIVER_MEMORY_OVERHEAD;
     }
 
     public void setSparkDriverAllowMultipleContexts(String AllowMultipleContext) {
-        this.SPARK_DRIVER_ALLOWMULTIPLECONTEXTS = "spark.driver.allowMultipleContexts=" + AllowMultipleContext;
+        this.SPARK_DRIVER_ALLOW_MULTIPLE_CONTEXT = "spark.driver.allowMultipleContexts=" + AllowMultipleContext;
     }
 
     public String getSparkDriverAllowMultipleContexts() {
-        return SPARK_DRIVER_ALLOWMULTIPLECONTEXTS;
+        return SPARK_DRIVER_ALLOW_MULTIPLE_CONTEXT;
     }
 
     protected void setSparkExecutorMemory(String ExecutorMemory) {
@@ -617,27 +617,27 @@ public class SparkProperties extends Core {
     }
 
     public void setSparkExecutorPySparkMemory(String PySparkMemory) {
-        this.SPARK_EXECUTOR_PYSPARK_MEMORY = "spark.executor.pyspark.memory="+PySparkMemory;
+        this.SPARK_EXECUTOR_PY_SPARK_MEMORY = "spark.executor.pyspark.memory="+PySparkMemory;
     }
 
     public String getSparkExecutorPySparkMemory() {
-        return SPARK_EXECUTOR_PYSPARK_MEMORY;
+        return SPARK_EXECUTOR_PY_SPARK_MEMORY;
     }
 
     public void setSparkExecutorMemoryOverhead(String MemoryOverhead) {
-        this.SPARK_EXECUTOR_MEMORYOVERHEAD = "spark.executor.memoryOverhead="+MemoryOverhead;
+        this.SPARK_EXECUTOR_MEMORY_OVERHEAD = "spark.executor.memoryOverhead="+MemoryOverhead;
     }
 
     public String getSparkExecutorMemoryOverhead() {
-        return SPARK_EXECUTOR_MEMORYOVERHEAD;
+        return SPARK_EXECUTOR_MEMORY_OVERHEAD;
     }
 
     public void setSparkExtraListener(String ExtraListener) {
-        this.SPARK_EXTRALISTENER = "spark.extraListeners="+ExtraListener;
+        this.SPARK_EXTRA_LISTENER = "spark.extraListeners="+ExtraListener;
     }
 
     public String getSparkExtraListener() {
-        return SPARK_EXTRALISTENER;
+        return SPARK_EXTRA_LISTENER;
     }
 
     public void setSparkLocalDirectory(String LocalDirectory) {
@@ -649,11 +649,11 @@ public class SparkProperties extends Core {
     }
 
     public void setSparkLogConf(String LogConf) {
-        this.SPARK_LOGCONF = "spark.logConf="+LogConf;
+        this.SPARK_LOG_CONF = "spark.logConf="+LogConf;
     }
 
     public String getSparkLogCOnf() {
-        return SPARK_LOGCONF;
+        return SPARK_LOG_CONF;
     }
 
     protected void setMaster(String SparkMaster) {
@@ -665,19 +665,19 @@ public class SparkProperties extends Core {
     }
 
     protected void setSparkSubmitDeployMode(String DeployMode) {
-        this.SPARK_SUBMIT_DEPLOYMODE = "spark.submit.deployMode="+DeployMode;
+        this.SPARK_SUBMIT_DEPLOY_MODE = "spark.submit.deployMode="+DeployMode;
     }
 
     protected String getSparkSubmitDeployMode() {
-        return SPARK_SUBMIT_DEPLOYMODE;
+        return SPARK_SUBMIT_DEPLOY_MODE;
     }
 
     public void setSparkLogCallerContext(String CallerContext) {
-        this.SPARK_LOG_CALLERCONTEXT = "spark.log.callerContext="+CallerContext;
+        this.SPARK_LOG_CALLER_CONTEXT = "spark.log.callerContext="+CallerContext;
     }
 
     public String getSparkLogCallerContext() {
-        return SPARK_LOG_CALLERCONTEXT;
+        return SPARK_LOG_CALLER_CONTEXT;
     }
 
     protected void setSparkDriverSupervise(String Supervise) {
@@ -694,70 +694,70 @@ public class SparkProperties extends Core {
     /* ===========================================   Runtime Environment  =========================================== */
 
     protected void setSparkDriverExtraClassPath(String ExtraClassPath) {
-        this.SPARK_DRIVER_EXTRACLASSPATH = "spark.driver.extraClassPath=" + ExtraClassPath;
+        this.SPARK_DRIVER_EXTRA_CLASS_PATH = "spark.driver.extraClassPath=" + ExtraClassPath;
     }
 
     protected String getSparkDriverExtraClassPath() {
-        return SPARK_DRIVER_EXTRACLASSPATH;
+        return SPARK_DRIVER_EXTRA_CLASS_PATH;
     }
 
     protected void setSparkDriverExtraJavaOptions(String ExtraJavaOptions) {
-        this.SPARK_DRIVER_EXTRAJAVAOPTIONS = "spark.driver.extraJavaOptions=" + ExtraJavaOptions;
+        this.SPARK_DRIVER_EXTRA_JAVA_OPTION = "spark.driver.extraJavaOptions=" + ExtraJavaOptions;
     }
 
     protected String getSparkDriverExtraJavaOptions() {
-        return SPARK_DRIVER_EXTRAJAVAOPTIONS;
+        return SPARK_DRIVER_EXTRA_JAVA_OPTION;
     }
 
     protected void setSparkDriverExtraLibraryPath(String ExtraLibraryPath) {
-        this.SPARK_DRIVER_EXTRALIBRARYPATH = "spark.driver.extraLibraryPath=" + ExtraLibraryPath;
+        this.SPARK_DRIVER_EXTRA_LIBRARY_PATH = "spark.driver.extraLibraryPath=" + ExtraLibraryPath;
     }
 
     protected String getSparkDriverExtraLibraryPath() {
-        return SPARK_DRIVER_EXTRALIBRARYPATH;
+        return SPARK_DRIVER_EXTRA_LIBRARY_PATH;
     }
 
     protected void setSparkDriverUserClassPathFirst(String UserClassPathFirst) {
-        this.SPARK_DRIVER_USERCLASSPATHFIRST = "spark.driver.userClassPathFirst=" + UserClassPathFirst;
+        this.SPARK_DRIVER_USER_CLASS_PATH_FIRST = "spark.driver.userClassPathFirst=" + UserClassPathFirst;
     }
 
     protected String getSparkDriverUserClassPathFirst() {
-        return SPARK_DRIVER_USERCLASSPATHFIRST;
+        return SPARK_DRIVER_USER_CLASS_PATH_FIRST;
     }
     /* ===========================================   Runtime Environment  =========================================== */
 
     /* ===========================================     Shuffle Behavior   =========================================== */
 
     public void setSparkReducerMaxSizeInFlight(String ReducerMaxSizeInFlight) {
-        this.SPARK_REDUCER_MAXSIZEINFLIGHT = "spark.reducer.maxSizeInFlight=" + ReducerMaxSizeInFlight;
+        this.SPARK_REDUCER_MAX_SIZE_IN_FLIGHT = "spark.reducer.maxSizeInFlight=" + ReducerMaxSizeInFlight;
     }
 
     public String getSparkReducerMaxSizeInFlight() {
-        return SPARK_REDUCER_MAXSIZEINFLIGHT;
+        return SPARK_REDUCER_MAX_SIZE_IN_FLIGHT;
     }
 
     public void setSparkReducerMaxReqsInFlight(String MaxReqsInFlight) {
-        this.SPARK_REDUCER_MAXREQSINFLIGTH = "spark.reducer.maxReqsInFlight=" + MaxReqsInFlight;
+        this.SPARK_REDUCER_MAX_REQ_IN_FLIGHT = "spark.reducer.maxReqsInFlight=" + MaxReqsInFlight;
     }
 
     public String getSparkReducerMaxReqsInFlight() {
-        return SPARK_REDUCER_MAXREQSINFLIGTH;
+        return SPARK_REDUCER_MAX_REQ_IN_FLIGHT;
     }
 
     public void setSparkReducerMaxBlocksInFlightPerAddress(String MaxBlocksInFlightPerAddress) {
-        this.SPARK_REDUCER_MAXBLOCKSINFLIGHTPERADDRESS = "spark.reducer.maxBlocksInFlightPerAddress=" + MaxBlocksInFlightPerAddress;
+        this.SPARK_REDUCER_MAX_BLOCKS_IN_FLIGHT_PER_ADDRESS = "spark.reducer.maxBlocksInFlightPerAddress=" + MaxBlocksInFlightPerAddress;
     }
 
     public String getSparkReducerMaxBlocksInFlightPerAddress() {
-        return SPARK_REDUCER_MAXBLOCKSINFLIGHTPERADDRESS;
+        return SPARK_REDUCER_MAX_BLOCKS_IN_FLIGHT_PER_ADDRESS;
     }
 
     public void setSparkMaxRemoteBlockSizeFetchToMem(String MaxRemoteBlockSizeFetchToMem) {
-        this.SPARK_MAXREMOTEBLOCKSIZEFETCHTOMEM = "spark.maxRemoteBlockSizeFetchToMem=" + MaxRemoteBlockSizeFetchToMem;
+        this.SPARK_MAX_REMOTE_BLOCK_SIZE_FETCH_TO_MEMORY = "spark.maxRemoteBlockSizeFetchToMem=" + MaxRemoteBlockSizeFetchToMem;
     }
 
     public String getSparkMaxRemoteBlockSizeFetchToMem() {
-        return SPARK_MAXREMOTEBLOCKSIZEFETCHTOMEM;
+        return SPARK_MAX_REMOTE_BLOCK_SIZE_FETCH_TO_MEMORY;
     }
 
     public void setSparkShuffleCompress(String Compress) {
@@ -777,35 +777,35 @@ public class SparkProperties extends Core {
     }
 
     public void setSparkShuffleIOMaxRetries(String IOMaxRetries) {
-        this.SPARK_SHUFFLE_IO_MAXRETRIES = "spark.shuffle.io.maxRetries=" + IOMaxRetries;
+        this.SPARK_SHUFFLE_IO_MAX_RETRIES = "spark.shuffle.io.maxRetries=" + IOMaxRetries;
     }
 
     public String getSparkShuffleIOMaxRetries() {
-        return SPARK_SHUFFLE_IO_MAXRETRIES;
+        return SPARK_SHUFFLE_IO_MAX_RETRIES;
     }
 
     public void setSparkShuffleIONumConnectionsPerPeer(String IONumConnectionsPerPeer) {
-        this.SPARK_SHUFFLE_IO_NUMCONNECTIONSPERPEER = "spark.shuffle.io.numConnectionsPerPeer=" + IONumConnectionsPerPeer;
+        this.SPARK_SHUFFLE_IO_NUM_CONNECTIONS_PER_PEER = "spark.shuffle.io.numConnectionsPerPeer=" + IONumConnectionsPerPeer;
     }
 
     public String getSparkShuffleIONumConnectionsPerPeer() {
-        return SPARK_SHUFFLE_IO_NUMCONNECTIONSPERPEER;
+        return SPARK_SHUFFLE_IO_NUM_CONNECTIONS_PER_PEER;
     }
 
     public void setSparkShuffleIOPreferDirectBufs(String IOPreferDirectBufs) {
-        this.SPARK_SHUFFLE_IO_PREFERDIRECTBUFS = "spark.shuffle.io.preferDirectBufs=" + IOPreferDirectBufs;
+        this.SPARK_SHUFFLE_IO_PREFER_DIRECT_BUFFERS = "spark.shuffle.io.preferDirectBufs=" + IOPreferDirectBufs;
     }
 
     public String getSparkShuffleIOPreferDirectBufs() {
-        return SPARK_SHUFFLE_IO_PREFERDIRECTBUFS;
+        return SPARK_SHUFFLE_IO_PREFER_DIRECT_BUFFERS;
     }
 
     public void setSparkShuffleIORetryWait(String RetryWait) {
-        this.SPARK_SHUFFLE_IO_RETRYWAIT = "spark.shuffle.io.retryWait=" + RetryWait;
+        this.SPARK_SHUFFLE_IO_RETRY_WAIT = "spark.shuffle.io.retryWait=" + RetryWait;
     }
 
     public String getSparkShuffleIORetryWait() {
-        return SPARK_SHUFFLE_IO_RETRYWAIT;
+        return SPARK_SHUFFLE_IO_RETRY_WAIT;
     }
 
     public void setSparkShuffleServiceEnabled(String ServiceEnabled) {
@@ -833,19 +833,19 @@ public class SparkProperties extends Core {
     }
 
     public void setSparkShuffleMaxChunksBeingTransferred(String MaxChunksBeingTransferred) {
-        this.SPARK_SHUFFLE_MAXCHUNKSBEINGTRANSFERRED = "spark.shuffle.maxChunksBeingTransferred=" + MaxChunksBeingTransferred;
+        this.SPARK_SHUFFLE_MAX_CHUNKS_BEING_TRANSFERRED = "spark.shuffle.maxChunksBeingTransferred=" + MaxChunksBeingTransferred;
     }
 
     public String getSparkShuffleMaxChunksBeingTransferred() {
-        return SPARK_SHUFFLE_MAXCHUNKSBEINGTRANSFERRED;
+        return SPARK_SHUFFLE_MAX_CHUNKS_BEING_TRANSFERRED;
     }
 
     public void setSparkShuffleSortBypassMergeThreshold(String SortBypassMergeThreshold) {
-        this.SPARK_SHUFFLE_SORT_BYPASSMERGETHRESHOLD = "spark.shuffle.sort.bypassMergeThreshold=" + SortBypassMergeThreshold;
+        this.SPARK_SHUFFLE_SORT_BYPASS_MERGE_THRESHOLD = "spark.shuffle.sort.bypassMergeThreshold=" + SortBypassMergeThreshold;
     }
 
     public String getSparkShuffleSortBypassMergeThreshold() {
-       return SPARK_SHUFFLE_SORT_BYPASSMERGETHRESHOLD;
+       return SPARK_SHUFFLE_SORT_BYPASS_MERGE_THRESHOLD;
     }
 
     public void setSparkShuffleSpillCompress(String SpillCompress) {
@@ -857,11 +857,11 @@ public class SparkProperties extends Core {
     }
 
     public void setSparkShuffleAccurateBlockThreshold(String AccurateBlockThreshold) {
-         this.SPARK_SHUFFLE_ACCURATEBLOCKTHRESHOLD = "spark.shuffle.accurateBlockThreshold=" + AccurateBlockThreshold;
+         this.SPARK_SHUFFLE_ACCURATE_BLOCK_THRESHOLD = "spark.shuffle.accurateBlockThreshold=" + AccurateBlockThreshold;
     }
 
     public String getSparkShuffleAccurateBlockThreshold() {
-        return SPARK_SHUFFLE_ACCURATEBLOCKTHRESHOLD;
+        return SPARK_SHUFFLE_ACCURATE_BLOCK_THRESHOLD;
     }
 
     public void setSparkShuffleRegistrationTimeout(String RegistrationTimeout) {
@@ -886,59 +886,59 @@ public class SparkProperties extends Core {
     /* ===========================================        Spark UI        =========================================== */
 
     public void setSparkEventLogBlockUpdatesEnabled(String BlockUpdatesEnabled) {
-        this.SPARK_EVENTLOG_LOGBLOCKUPDATES_ENABLED = "spark.eventLog.logBlockUpdates.enabled=" + BlockUpdatesEnabled;
+        this.SPARK_EVENT_LOG_LOGBLOCKUPDATES_ENABLED = "spark.eventLog.logBlockUpdates.enabled=" + BlockUpdatesEnabled;
     }
 
     public String getSparkEventLogBlockUpdatesEnabled() {
-        return SPARK_EVENTLOG_LOGBLOCKUPDATES_ENABLED;
+        return SPARK_EVENT_LOG_LOGBLOCKUPDATES_ENABLED;
     }
 
     public void setSparkEventLogLongFormEnabled(String LongFormEnabled) {
-        this.SPARK_EVENTLOG_LONGFORM_ENABLED = "spark.eventLog.longForm.enabled=" + LongFormEnabled;
+        this.SPARK_EVENT_LOG_LONGFORM_ENABLED = "spark.eventLog.longForm.enabled=" + LongFormEnabled;
     }
 
     public String getSparkEventLogLongFormEnabled() {
-        return SPARK_EVENTLOG_LONGFORM_ENABLED;
+        return SPARK_EVENT_LOG_LONGFORM_ENABLED;
     }
 
     public void setSparkEventLogCompress(String LogCompress) {
-        this.SPARK_EVENTLOG_COMPRESS = "spark.eventLog.compress=" + LogCompress;
+        this.SPARK_EVENT_LOG_COMPRESS = "spark.eventLog.compress=" + LogCompress;
     }
 
     public String getSparkEventLogCompress() {
-        return SPARK_EVENTLOG_COMPRESS;
+        return SPARK_EVENT_LOG_COMPRESS;
     }
 
     public void setSparkEventLogDir(String EventLogDir) {
-        this.SPARK_EVENTLOG_DIR = "spark.eventLog.dir=" + EventLogDir;
+        this.SPARK_EVENT_LOG_DIR = "spark.eventLog.dir=" + EventLogDir;
     }
 
     public String getSparkEventLogDir() {
-        return SPARK_EVENTLOG_DIR;
+        return SPARK_EVENT_LOG_DIR;
     }
 
     public void setSparkEventLogEnabled(String EventLogEnabled) {
-        this.SPARK_EVENTLOG_ENABLED = "spark.eventLog.enabled=" + EventLogEnabled;
+        this.SPARK_EVENT_LOG_ENABLED = "spark.eventLog.enabled=" + EventLogEnabled;
     }
 
     public String getSparkEventLogEnabled() {
-        return SPARK_EVENTLOG_ENABLED;
+        return SPARK_EVENT_LOG_ENABLED;
     }
 
     public void setSparkEventLogOverWrite(String EventLogOverWrite) {
-        this.SPARK_EVENTLOG_OVERWRITE = "spark.eventLog.overwrite=" + EventLogOverWrite;
+        this.SPARK_EVENT_LOG_OVERWRITE = "spark.eventLog.overwrite=" + EventLogOverWrite;
     }
 
     public String getSparkEventLogOverWrite() {
-        return SPARK_EVENTLOG_OVERWRITE;
+        return SPARK_EVENT_LOG_OVERWRITE;
     }
 
     public void setSparkEventLogBufferKB(String BufferKB) {
-        this.SPARK_EVENTLOG_BUFFER_KB = "spark.eventLog.buffer.kb=" + BufferKB;
+        this.SPARK_EVENT_LOG_BUFFER_KB = "spark.eventLog.buffer.kb=" + BufferKB;
     }
 
     public String getSparkEventLogBufferKB() {
-        return SPARK_EVENTLOG_BUFFER_KB;
+        return SPARK_EVENT_LOG_BUFFER_KB;
     }
 
     /* ===========================================        Spark UI        =========================================== */
@@ -1028,7 +1028,7 @@ public class SparkProperties extends Core {
     }
 
     public void setSparkKyroUnsafe(String Unsafe) {
-        this.SPARK_KYRO_UNSAFE = "spark.kryo.unsafe=" + Unsafe;;
+        this.SPARK_KYRO_UNSAFE = "spark.kryo.unsafe=" + Unsafe;
     }
 
     public String getSparkKyroUnsafe() {
@@ -1102,77 +1102,77 @@ public class SparkProperties extends Core {
     /* ===========================================         Dynamic Allocation    ==================================== */
 
     public void setSparkDynamicAllocationEnabled(String DynamicAllocationEnabled) {
-        this.SPARK_DYNAMICALLOCATION_ENABLED = "spark.dynamicAllocation.enabled=" + DynamicAllocationEnabled;
+        this.SPARK_DYNAMIC_ALLOCATION_ENABLED = "spark.dynamicAllocation.enabled=" + DynamicAllocationEnabled;
     }
 
     public String getSparkDynamicAllocationEnabled() {
-        return SPARK_DYNAMICALLOCATION_ENABLED;
+        return SPARK_DYNAMIC_ALLOCATION_ENABLED;
     }
 
     public void setSparkDynamicAllocationExecutorIdleTimeout(String ExecutorIdleTimeout) {
-        this.SPARK_DYNAMICALLOCATION_EXECUTORIDLETIMEOUT = "spark.dynamicAllocation.executorIdleTimeout=" + ExecutorIdleTimeout;
+        this.SPARK_DYNAMIC_ALLOCATION_EXECUTORIDLETIMEOUT = "spark.dynamicAllocation.executorIdleTimeout=" + ExecutorIdleTimeout;
     }
 
     public String getSparkDynamicAllocationExecutorIdleTimeout() {
-        return SPARK_DYNAMICALLOCATION_EXECUTORIDLETIMEOUT;
+        return SPARK_DYNAMIC_ALLOCATION_EXECUTORIDLETIMEOUT;
     }
 
     public void setSparkDynamicAllocationCachedExecutorIdleTimeout(String CachedExecutorIdleTimeout) {
-        this.SPARK_DYNAMICALLOCATION_CACHEDEXECUTORIDLETIMEOUT = "spark.dynamicAllocation.cachedExecutorIdleTimeout=" + CachedExecutorIdleTimeout;
+        this.SPARK_DYNAMIC_ALLOCATION_CACHEDEXECUTORIDLETIMEOUT = "spark.dynamicAllocation.cachedExecutorIdleTimeout=" + CachedExecutorIdleTimeout;
     }
 
     public String getSparkDynamicAllocationCachedExecutorIdleTimeout() {
-        return SPARK_DYNAMICALLOCATION_CACHEDEXECUTORIDLETIMEOUT;
+        return SPARK_DYNAMIC_ALLOCATION_CACHEDEXECUTORIDLETIMEOUT;
     }
 
     public void setSparkDynamicAllocationInitialExecutors(String InitialExecutors) {
-        this.SPARK_DYNAMICALLOCATION_INITIALEXECUTORS = "spark.dynamicAllocation.initialExecutors=" + InitialExecutors;
+        this.SPARK_DYNAMIC_ALLOCATION_INITIALEXECUTORS = "spark.dynamicAllocation.initialExecutors=" + InitialExecutors;
 
     }
 
     public String getSparkDynamicAllocationInitialExecutors() {
-        return SPARK_DYNAMICALLOCATION_INITIALEXECUTORS;
+        return SPARK_DYNAMIC_ALLOCATION_INITIALEXECUTORS;
     }
 
     public void setSparkDynamicAllocationMaxExecutors(String MaxExecutors) {
-        this.SPARK_DYNAMICALLOCATION_MAXEXECUTORS = "spark.dynamicAllocation.maxExecutors=" + MaxExecutors;
+        this.SPARK_DYNAMIC_ALLOCATION_MAXEXECUTORS = "spark.dynamicAllocation.maxExecutors=" + MaxExecutors;
 
     }
 
     public String getSparkDynamicAllocationMaxExecutors() {
-        return SPARK_DYNAMICALLOCATION_MAXEXECUTORS;
+        return SPARK_DYNAMIC_ALLOCATION_MAXEXECUTORS;
     }
 
     public void setSparkDynamicAllocationMinExecutors(String MinExecutors) {
-        this.SPARK_DYNAMICALLOCATION_MINEXECUTORS = "spark.dynamicAllocation.minExecutors=" + MinExecutors;
+        this.SPARK_DYNAMIC_ALLOCATION_MINEXECUTORS = "spark.dynamicAllocation.minExecutors=" + MinExecutors;
     }
 
     public String getSparkDynamicAllocationMinExecutors() {
-        return SPARK_DYNAMICALLOCATION_MINEXECUTORS;
+        return SPARK_DYNAMIC_ALLOCATION_MINEXECUTORS;
     }
 
     public void setDynamicAllocationExecutorAllocationRatio(String ExecutorAllocationRation) {
-        this.SPARK_DYNAMICALLOCATION_EXECUTORALLOCATIONRATIO = "spark.dynamicAllocation.executorAllocationRatio=" + ExecutorAllocationRation;
+        this.SPARK_DYNAMIC_ALLOCATION_EXECUTORALLOCATIONRATIO = "spark.dynamicAllocation.executorAllocationRatio=" + ExecutorAllocationRation;
     }
 
     public String getDynamicAllocationExecutorAllocationRatio() {
-        return SPARK_DYNAMICALLOCATION_EXECUTORALLOCATIONRATIO;
+        return SPARK_DYNAMIC_ALLOCATION_EXECUTORALLOCATIONRATIO;
     }
 
     public void setDynamicAllocationSchedulerBacklogTimeout(String SchedulerBacklogTimeout) {
-        this.SPARK_DYNAMICALLOCATION_SCHEDULERBACKLOGTIMEOUT = "spark.dynamicAllocation.schedulerBacklogTimeout=" + SchedulerBacklogTimeout;
+        this.SPARK_DYNAMIC_ALLOCATION_SCHEDULERBACKLOGTIMEOUT = "spark.dynamicAllocation.schedulerBacklogTimeout=" + SchedulerBacklogTimeout;
     }
 
     public String getDynamicAllocationSchedulerBacklogTimeout() {
-        return SPARK_DYNAMICALLOCATION_SCHEDULERBACKLOGTIMEOUT;
+        return SPARK_DYNAMIC_ALLOCATION_SCHEDULERBACKLOGTIMEOUT;
     }
 
     public void setDynamicAllocationSustainedSchedulerBacklogTimeout(String SustainedSchedulerBacklogTimeout) {
-        this.SPARK_DYNAMICALLOCATION_SUSTAINEDSCHEDULERBACKLOGTIMEOUT = "spark.dynamicAllocation.sustainedSchedulerBacklogTimeout=" + SustainedSchedulerBacklogTimeout;
+        this.SPARK_DYNAMIC_ALLOCATION_SUSTAINEDSCHEDULERBACKLOGTIMEOUT = "spark.dynamicAllocation.sustainedSchedulerBacklogTimeout=" + SustainedSchedulerBacklogTimeout;
     }
 
     public String getDynamicAllocationSustainedSchedulerBacklogTimeout() {
-        return SPARK_DYNAMICALLOCATION_SUSTAINEDSCHEDULERBACKLOGTIMEOUT;
+        return SPARK_DYNAMIC_ALLOCATION_SUSTAINEDSCHEDULERBACKLOGTIMEOUT;
     }
 
     /* ===========================================         Dynamic Allocation    ==================================== */
