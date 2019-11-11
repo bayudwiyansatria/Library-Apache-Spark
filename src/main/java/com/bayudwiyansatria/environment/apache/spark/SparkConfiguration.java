@@ -55,14 +55,14 @@ public class SparkConfiguration extends SparkProperties {
     private boolean SPARK_SUPERVISE = false;
 
     /* ========================================= Spark Require Argument START ================================================ */
-    
+
     public void setSparkMasterHost(String SparkHost){
         this.SPARK_MASTER_HOST = SparkHost.toLowerCase();
     }
 
     public String getSparkMasterHost(){
          if(SPARK_MASTER_HOST == null){
-            setSparkMasterHost("realm.bayudwiyansatria.com");
+            setSparkMasterHost(new com.bayudwiyansatria.network.Network ().getLocalIpAddress ());
          }
         return SPARK_MASTER_HOST;
     }
