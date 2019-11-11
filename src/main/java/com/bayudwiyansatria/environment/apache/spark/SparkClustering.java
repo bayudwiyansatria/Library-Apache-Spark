@@ -29,17 +29,6 @@ import org.apache.spark.mllib.linalg.Vector;
 
 public class SparkClustering {
 
-    public int[] AutomaticSingleLinkage(JavaRDD<String> data, int Interval){
-        double[][] newData = new SparkUtils().rdd_to_double (data);
-        System.out.println(new Spark().getSparkMaster());
-        return new com.bayudwiyansatria.ml.clustering.AutomaticClustering().SingleLinkage(newData,10);
-    }
-
-    public int[] AutomaticSingleLinkage(double[][] data, int Interval){
-        System.out.println(new Spark().getSparkMaster());
-        return new com.bayudwiyansatria.ml.clustering.AutomaticClustering().SingleLinkage(data,10);
-    }
-
 	public int[] BisectingKMeans(JavaRDD<Vector> data, int NumberOfCluster){
         org.apache.spark.mllib.clustering.BisectingKMeans bkm = new org.apache.spark.mllib.clustering.BisectingKMeans().setK ( NumberOfCluster );
         BisectingKMeansModel model = bkm.run(data);
