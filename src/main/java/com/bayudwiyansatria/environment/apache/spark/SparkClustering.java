@@ -15,7 +15,7 @@
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * FITNESS FOR A PARTICULAR PURPOSE AND NON INFRINGEMENT. IN NO EVENT SHALL THE
  * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
@@ -28,17 +28,6 @@ import org.apache.spark.mllib.clustering.BisectingKMeansModel;
 import org.apache.spark.mllib.linalg.Vector;
 
 public class SparkClustering {
-
-    public int[] AutomaticSingleLinkage(JavaRDD<String> data, int Interval){
-        double[][] newData = new SparkUtils().rdd_to_double (data);
-        System.out.println(new Spark().getSparkMaster());
-        return new com.bayudwiyansatria.ml.clustering.AutomaticClustering().SingleLinkage(newData,10);
-    }
-
-    public int[] AutomaticSingleLinkage(double[][] data, int Interval){
-        System.out.println(new Spark().getSparkMaster());
-        return new com.bayudwiyansatria.ml.clustering.AutomaticClustering().SingleLinkage(data,10);
-    }
 
 	public int[] BisectingKMeans(JavaRDD<Vector> data, int NumberOfCluster){
         org.apache.spark.mllib.clustering.BisectingKMeans bkm = new org.apache.spark.mllib.clustering.BisectingKMeans().setK ( NumberOfCluster );

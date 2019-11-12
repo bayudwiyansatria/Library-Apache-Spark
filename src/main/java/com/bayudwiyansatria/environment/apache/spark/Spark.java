@@ -15,7 +15,7 @@
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * FITNESS FOR A PARTICULAR PURPOSE AND NON INFRINGEMENT. IN NO EVENT SHALL THE
  * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
@@ -27,34 +27,8 @@ package com.bayudwiyansatria.environment.apache.spark;
 import org.apache.spark.deploy.SparkSubmit;
 
 public class Spark extends SparkConfiguration {
-    private String SPARK_HOME = null;
-    private String SPARK_USER = null;
     private String[] SPARK_CONFIGURATION = new String[30];
     private String[] SPARK_CHILD_ARGUMENTS = new String[3];
-
-    public void setSparkHome(String Directory) {
-        System.setProperty("SPARK_HOME", Directory);
-        this.SPARK_HOME = Directory;
-    }
-
-    public String getSparkHome() {
-        return SPARK_HOME;
-    }
-
-    public void setSparkUser(String User) {
-        System.setProperty("SPARK_USER", User);
-        this.SPARK_HOME = User;
-    }
-
-    public String getSparkUser() {
-        if(SPARK_USER == null) {
-        }
-        return SPARK_USER;
-    }
-
-    private void setSparkAttempt(int NumberOfAttempts) {
-        System.setProperty("MAX_APP_ATTEMPTS", String.valueOf(NumberOfAttempts));
-    }
 
     public void setSparkConfiguration() {
         SPARK_CONFIGURATION = getSparkArgument();
@@ -92,7 +66,6 @@ public class Spark extends SparkConfiguration {
             ConfigurationIndex = ConfigurationIndex + 2;
             Configuration[ConfigurationIndex-1] = "--master";
             Configuration[ConfigurationIndex] = getSparkMaster();
-            //System.out.println("Spark Master : " + getSparkMaster());
         }
 
         if(getDeployMode() != null) {
@@ -102,14 +75,12 @@ public class Spark extends SparkConfiguration {
                 setDeployMode("client");
             }
             Configuration[ConfigurationIndex] = getDeployMode();
-            //System.out.println("Deploy Mode : " + getDeployMode());
         }
 
         if(getMainClass() != null) {
             ConfigurationIndex = ConfigurationIndex + 2;
             Configuration[ConfigurationIndex-1] = "--class";
             Configuration[ConfigurationIndex] = getMainClass();
-            //System.out.println("Main Class : " + getMainClass() );
         }
 
 
@@ -117,77 +88,66 @@ public class Spark extends SparkConfiguration {
             ConfigurationIndex = ConfigurationIndex + 2;
             Configuration[ConfigurationIndex-1] = "--name";
             Configuration[ConfigurationIndex] = getAppName();
-            //System.out.println("Application Name : " + getAppName());
         }
 
         if(getExecutorMemory() != null) {
             ConfigurationIndex = ConfigurationIndex + 2;
             Configuration[ConfigurationIndex-1] = "--executor-memory";
             Configuration[ConfigurationIndex] = getExecutorMemory();
-            //System.out.println("Executor Memory : " + getExecutorMemory());
         }
 
         if(getExecutorCores() != null) {
             ConfigurationIndex = ConfigurationIndex + 2;
             Configuration[ConfigurationIndex-1] = "--executor-cores";
             Configuration[ConfigurationIndex] = getExecutorCores();
-            //System.out.println("Executor Cores : " + getExecutorCores());
         }
 
         if(getTotalCores() != null) {
             ConfigurationIndex = ConfigurationIndex + 2;
             Configuration[ConfigurationIndex-1] = "--total-cores";
             Configuration[ConfigurationIndex] = getTotalCores();
-            //System.out.println("Total Cores : " + getTotalCores());
         }
 
         if(getDriverCores() != null) {
             ConfigurationIndex = ConfigurationIndex + 2;
             Configuration[ConfigurationIndex-1] = "--driver-cores";
             Configuration[ConfigurationIndex] = getDriverCores();
-            //System.out.println("Driver Cores : " + getDriverCores());
         }
 
         if(getDriverMemory() != null) {
             ConfigurationIndex = ConfigurationIndex + 2;
             Configuration[ConfigurationIndex-1] = "--driver-memory";
             Configuration[ConfigurationIndex] = getDriverMemory();
-            //System.out.println("Driver Memory : " + getDriverMemory());
         }
 
         if(getNumExecutors() != null) {
             ConfigurationIndex = ConfigurationIndex + 2;
             Configuration[ConfigurationIndex-1] = "--num-executors";
             Configuration[ConfigurationIndex] = getNumExecutors();
-            //System.out.println("Number of Executor : " + getNumExecutors());
         }
 
         if(getJars() != null) {
             ConfigurationIndex = ConfigurationIndex + 2;
             Configuration[ConfigurationIndex-1] = "--jars";
             Configuration[ConfigurationIndex] = getJars();
-            //System.out.println("Jar Application : " + getJars());
         }
 
         if(getNumExecutors() != null) {
             ConfigurationIndex = ConfigurationIndex + 2;
             Configuration[ConfigurationIndex-1] = "--driver-java-options";
             Configuration[ConfigurationIndex] = getDriverExtraJavaOptions();
-            //System.out.println("Number of Executor : " + getNumExecutors());
         }
 
         if(getPackages() != null) {
             ConfigurationIndex = ConfigurationIndex + 2;
             Configuration[ConfigurationIndex-1] = "--packages";
             Configuration[ConfigurationIndex] = getPackages();
-            //System.out.println("Jar Application : " + getJars());
         }
 
         if(getRepositories() != null) {
             ConfigurationIndex = ConfigurationIndex + 2;
             Configuration[ConfigurationIndex-1] = "--repositories";
             Configuration[ConfigurationIndex] = getRepositories();
-            //System.out.println("Jar Application : " + getJars());
         }
 
         /* =========================================== Application Properties ======================================= */
@@ -786,4 +746,3 @@ public class Spark extends SparkConfiguration {
         return new com.bayudwiyansatria.mat.Mat().removeNull(SPARK_CHILD_ARGUMENTS);
     }
 }
-
