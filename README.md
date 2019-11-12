@@ -64,13 +64,15 @@ For more information see : [The Central Repository](https://search.maven.org/art
 | [SLF4j](https://search.maven.org/)                                                | org.slf4j                 | slf4j-api                 | 1.7.25
 | [HamCrest](https://search.maven.org/)                                             | org.hamcrest              | hamcrest-core             | 1.3
 | [HamCrest](https://search.maven.org/)                                             | org.hamcrest              | hamcrest-library          | 1.3
-| [BayuDwiyanSatria](https://search.maven.org/artifact/com.bayudwiyansatria/core)   | org.hamcrest              | hamcrest-library          | 1.1.8
+| [BayuDwiyanSatria](https://search.maven.org/artifact/com.bayudwiyansatria/core)   | com.bayudwiyansatria      | core                      | 1.1.8
+| [BayuDwiyanSatria](https://search.maven.org/artifact/com.bayudwiyansatria/core)   | com.bayudwiyansatria      | ml                        | 1.0
 | [Scala](https://search.maven.org/)                                                | org.scala                 | scala-library             | 2.11.12
 | [Log4j](https://search.maven.org/)                                                | org.apache.logging.log4j  | log4j-api                 | 2.11.12
 | [ApacheSpark](https://search.maven.org/)                                          | org.apache.spark          | spark-network-common_2.11 | 2.6.5
 | [ApacheSpark](https://search.maven.org/)                                          | org.apache.spark          | spark-catalyst_2.11       | 2.6.5
 | [ApacheSpark](https://search.maven.org/)                                          | org.apache.spark          | spark-launcher_2.11       | 2.6.5
 | [ApacheSpark](https://search.maven.org/)                                          | org.apache.spark          | spark-mllib_2.11          | 2.6.5
+| [ApacheSpark](https://search.maven.org/)                                          | org.apache.spark          | spark-yarn.11             | 2.6.5
 
 ## Installation
 
