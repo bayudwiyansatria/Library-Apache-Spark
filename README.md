@@ -69,7 +69,7 @@ For more information see : [The Central Repository](https://search.maven.org/art
 | [ApacheSpark](https://search.maven.org/)                                          | org.apache.spark          | spark-catalyst_2.11       | 2.6.5
 | [ApacheSpark](https://search.maven.org/)                                          | org.apache.spark          | spark-launcher_2.11       | 2.6.5
 | [ApacheSpark](https://search.maven.org/)                                          | org.apache.spark          | spark-mllib_2.11          | 2.6.5
-| [ApacheSpark](https://search.maven.org/)                                          | org.apache.spark          | spark-yarn.11             | 2.6.5
+| [ApacheSpark](https://search.maven.org/)                                          | org.apache.spark          | spark-yarn_2.11           | 2.6.5
 
 ## Installation
 
