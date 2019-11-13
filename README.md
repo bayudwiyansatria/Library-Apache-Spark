@@ -28,11 +28,9 @@
 # Bayu Dwiyan Satria - Apache Spark Libraries
 
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v1.4%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md)
+
 ![Github Actions](https://github.com/bayudwiyansatria/Library-Apache-Spark/workflows/Github%20Action/badge.svg)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/f2834a4963354432a9b5aec6a540c1b6)](https://www.codacy.com/manual/bayudwiyansatria/Library-Apache-Spark?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=bayudwiyansatria/Library-Apache-Spark&amp;utm_campaign=Badge_Grade)
-**Official Website: https://www.bayudwiyansatria.com/**
-
-Apache Spark Libraries.
 
 Apache Spark has as its architectural foundation the resilient distributed dataset (RDD), a read-only multiset of data items distributed over a cluster of machines, that is maintained in a fault-tolerant way. The Dataframe API was released as an abstraction on top of the RDD, followed by the Dataset API. In Spark 1.x, the RDD was the primary application programming interface (API), but as of Spark 2.x use of the Dataset API is encouraged even though the RDD API is not deprecated. The RDD technology still underlies the Dataset API.
 
@@ -63,13 +61,15 @@ For more information see : [The Central Repository](https://search.maven.org/art
 | [SLF4j](https://search.maven.org/)                                                | org.slf4j                 | slf4j-api                 | 1.7.25
 | [HamCrest](https://search.maven.org/)                                             | org.hamcrest              | hamcrest-core             | 1.3
 | [HamCrest](https://search.maven.org/)                                             | org.hamcrest              | hamcrest-library          | 1.3
-| [BayuDwiyanSatria](https://search.maven.org/artifact/com.bayudwiyansatria/core)   | org.hamcrest              | hamcrest-library          | 1.1.8
+| [BayuDwiyanSatria](https://search.maven.org/artifact/com.bayudwiyansatria/core)   | com.bayudwiyansatria      | core                      | 1.1.8
+| [BayuDwiyanSatria](https://search.maven.org/artifact/com.bayudwiyansatria/core)   | com.bayudwiyansatria      | ml                        | 1.0
 | [Scala](https://search.maven.org/)                                                | org.scala                 | scala-library             | 2.11.12
 | [Log4j](https://search.maven.org/)                                                | org.apache.logging.log4j  | log4j-api                 | 2.11.12
 | [ApacheSpark](https://search.maven.org/)                                          | org.apache.spark          | spark-network-common_2.11 | 2.6.5
 | [ApacheSpark](https://search.maven.org/)                                          | org.apache.spark          | spark-catalyst_2.11       | 2.6.5
 | [ApacheSpark](https://search.maven.org/)                                          | org.apache.spark          | spark-launcher_2.11       | 2.6.5
 | [ApacheSpark](https://search.maven.org/)                                          | org.apache.spark          | spark-mllib_2.11          | 2.6.5
+| [ApacheSpark](https://search.maven.org/)                                          | org.apache.spark          | spark-yarn.11             | 2.6.5
 
 ## Installation
 
