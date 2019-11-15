@@ -28,7 +28,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.bayudwiyansatria</groupId>
 	<artifactId>apache-spark</artifactId>
-	<version>1.1</version>
+	<version>1.0</version>
 	<packaging>jar</packaging>
 
 	<!-- Project Information -->
