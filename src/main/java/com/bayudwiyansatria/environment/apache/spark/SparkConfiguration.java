@@ -24,7 +24,12 @@
 
 package com.bayudwiyansatria.environment.apache.spark;
 
-public class SparkConfiguration extends SparkProperties {
+import org.apache.ivy.util.PropertiesFile;
+import org.apache.spark.SparkConf;
+
+import java.io.Serializable;
+
+public class SparkConfiguration extends SparkProperties implements Serializable {
 
     /* Main Configuration */
     private String SPARK_MASTER_HOST = null;
@@ -53,16 +58,23 @@ public class SparkConfiguration extends SparkProperties {
     private String SPARK_REPOSITORIES = null;
     private boolean SPARK_VERBOSE = false;
     private boolean SPARK_SUPERVISE = false;
-
+    
     /* ========================================= Spark Require Argument START ================================================ */
-
+    
+    public SparkConf getSparkConf(){
+        if( getSparkMasterHost().contains("local")) {
+             return new SparkConf().setAppName ( getAppName () ).setMaster ( getSparkMasterHost () );
+        }
+        return new SparkConf().setAppName ( getAppName () ).setMaster ( "spark://" + getSparkMasterHost () + ":" + getSparkMasterPort () );
+    }
+    
     public void setSparkMasterHost(String SparkHost){
         this.SPARK_MASTER_HOST = SparkHost.toLowerCase();
     }
 
     public String getSparkMasterHost(){
          if(SPARK_MASTER_HOST == null){
-            setSparkMasterHost(new com.bayudwiyansatria.network.Network ().getLocalIpAddress ());
+            setSparkMasterHost("local[*]");
          }
         return SPARK_MASTER_HOST;
     }
