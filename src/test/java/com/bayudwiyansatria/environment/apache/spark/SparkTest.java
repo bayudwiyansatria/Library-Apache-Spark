@@ -9,13 +9,13 @@ public class SparkTest {
 	
 	@Test
 	public void Spark(){
-		JavaRDD<String> data = new SparkIO ().readData_String ( new Spark ().getSparkContext (), "src/main/resources/ruspini" );
+		JavaRDD<String> data = new SparkIO ().readData_String ( new Spark ().getSparkContext (), "src/main/resources/ruspini.csv" );
 		
 	}
 	
 	@Test
 	public void Spark_ConvertRDD() {
-		JavaRDD<String> data = new SparkIO ().readData_String ( new Spark ().getSparkContext (), "src/main/resources/ruspini" );
+		JavaRDD<String> data = new SparkIO ().readData_String ( new Spark ().getSparkContext (), "src/main/resources/ruspini.csv" );
         double[][] newData = new SparkUtils().rdd_to_double (data);
         new com.bayudwiyansatria.mat.Mat ().print ( newData );
 	}
