@@ -606,7 +606,6 @@
 			</plugin>
 		</plugins>
 	</build>
-	<reports/>
 	<reporting>
 		<outputDirectory>${project.basedir}/target/site</outputDirectory>
 		<!-- Default Site Pages -->
