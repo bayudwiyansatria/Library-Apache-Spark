@@ -1,9 +1,15 @@
-# Maven
-# Build your Java project and run tests with Apache Maven.
-# Add steps that analyze code, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/java
+# CI/CD
+# Unauthorized copying of this file, via any medium is strictly prohibited
+# Proprietary and confidential
 
-trigger:
+# Author : Bayu Dwiyan Satria
+# Contact : bayudwiyansatria@gmail.com
+# Site : https://www.bayudwiyansatria.com
+
+name: 'Library-Apache-Spark'
+
+trigger: none
+pr:
 - master
 
 pool:
@@ -11,21 +17,19 @@ pool:
 
 steps:
 - task: Maven@3
+  displayName: 'Maven Build $(Build.BuildNumber)'
   inputs:
     mavenPomFile: 'pom.xml'
-    goals: 'clean packages'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    testRunTitle: 'Test'
+    testRunTitle: 'Maven Test'
     codeCoverageToolOption: 'JaCoCo'
     javaHomeOption: 'JDKVersion'
     jdkVersionOption: '1.8'
     mavenVersionOption: 'Default'
-    mavenOptions: '-Xmx3072m'
-    mavenAuthenticateFeed: true
+    mavenAuthenticateFeed: false
     effectivePomSkip: false
-    sonarQubeRunAnalysis: true
-    sqMavenPluginVersionChoice: 'pom'
+    sonarQubeRunAnalysis: false
     checkStyleRunAnalysis: true
     pmdRunAnalysis: true
     findBugsRunAnalysis: true
