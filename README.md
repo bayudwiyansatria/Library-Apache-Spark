@@ -30,6 +30,7 @@
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v1.4%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md)
 
 ![Github Actions](https://github.com/bayudwiyansatria/Library-Apache-Spark/workflows/Github%20Action/badge.svg)
+[![Build Status](https://dev.azure.com/bayudwiyansatria/Bayu%20Dwiyan%20Satria%20-%20Programming%20Library/_apis/build/status/Library-Apache-Spark?branchName=master)](https://dev.azure.com/bayudwiyansatria/Bayu%20Dwiyan%20Satria%20-%20Programming%20Library/_build/latest?definitionId=20&branchName=master)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/f2834a4963354432a9b5aec6a540c1b6)](https://www.codacy.com/manual/bayudwiyansatria/Library-Apache-Spark?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=bayudwiyansatria/Library-Apache-Spark&amp;utm_campaign=Badge_Grade)
 
 Apache Spark has as its architectural foundation the resilient distributed dataset (RDD), a read-only multiset of data items distributed over a cluster of machines, that is maintained in a fault-tolerant way. The Dataframe API was released as an abstraction on top of the RDD, followed by the Dataset API. In Spark 1.x, the RDD was the primary application programming interface (API), but as of Spark 2.x use of the Dataset API is encouraged even though the RDD API is not deprecated. The RDD technology still underlies the Dataset API.
@@ -82,8 +83,8 @@ Configure the following dependency in the pom file:
 ```xml
 <dependency>
   <groupId>com.bayudwiyansatria</groupId>
-  <artifactId>env-apache-spark</artifactId>
-  <version>${bayudwiyansatria.env-apache-spark.version}</version>
+  <artifactId>apache-spark</artifactId>
+  <version>${bayudwiyansatria.apache-spark.version}</version>
 </dependency>
 ```
 
@@ -92,18 +93,18 @@ Configure the following dependency in the pom file:
 Configure the following dependency in the build.gradle file:
 
 ```properties
-implementation='com.bayudwiyansatria:env-apache-spark:${bayudwiyansatria.env-apache-spark.version}'
+implementation='com.bayudwiyansatria:apache-spark:${bayudwiyansatria.apache-spark.version}'
 ```
 
 SBT
 
 ```sbt
-libraryDependencies += "com.bayudwiyansatria" % "env-apache-spark" % "${bayudwiyansatria.env-apache-spark.version}"
+libraryDependencies += "com.bayudwiyansatria" % "apache-spark" % "${bayudwiyansatria.apache-spark.version}"
 ```
 
-**Important** ! This will update from to your local repository . Be sure to swap out `${bayudwiyansatria.env-apache-spark.version}` with the actual version of Spark Libraries.
+**Important** ! This will update from to your local repository . Be sure to swap out `${bayudwiyansatria.apache-spark.version}` with the actual version of Spark Libraries.
 
-For more information see : [The Central Repository](https://search.maven.org/artifact/com.bayudwiyansatria/env-apache-spark/).
+For more information see : [The Central Repository](https://search.maven.org/artifact/com.bayudwiyansatria/apache-spark/).
 
 ## Development
 

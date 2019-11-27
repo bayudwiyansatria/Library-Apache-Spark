@@ -24,12 +24,20 @@
 
 package com.bayudwiyansatria.environment.apache.spark;
 
+import org.apache.spark.SparkConf;
+import org.apache.spark.SparkContext;
+import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.deploy.SparkSubmit;
+import org.apache.spark.sql.SparkSession;
 
-public class Spark extends SparkConfiguration {
+import java.io.Serializable;
+
+public class Spark extends SparkConfiguration implements Serializable {
     private String[] SPARK_CONFIGURATION = new String[30];
     private String[] SPARK_CHILD_ARGUMENTS = new String[3];
-
+    private static JavaSparkContext SPARK_CONTEXT = null;
+    private static SparkSession SPARK_SESSION = null;
+    
     public void setSparkConfiguration() {
         SPARK_CONFIGURATION = getSparkArgument();
     }
@@ -37,7 +45,16 @@ public class Spark extends SparkConfiguration {
     public String[] getSparkConfiguration() {
         return new com.bayudwiyansatria.mat.Mat().removeNull(SPARK_CONFIGURATION);
     }
-
+    
+    public JavaSparkContext getSparkContext() {
+        return JavaSparkContext.fromSparkContext ( getSparkSession ().sparkContext () );
+    }
+    
+    public SparkSession getSparkSession() {
+        SparkSession SPARK_SESSION = SparkSession.builder().config(getSparkConf ()).getOrCreate();
+        return SPARK_SESSION;
+    }
+    
     public void SparkSubmit(String[] argument) {
         SparkSubmit sparkSubmit = new org.apache.spark.deploy.SparkSubmit();
         this.setSparkConfiguration();
