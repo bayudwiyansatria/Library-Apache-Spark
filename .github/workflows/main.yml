@@ -24,7 +24,9 @@ jobs:
       - name: Maven build clean, build, test and install
         env:
           CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_PROJECT_TOKEN }}
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
         run: |
           mvn clean
           mvn test
           mvn package --file pom.xml
+          bash <(curl -s https://codecov.io/bash)
