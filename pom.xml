@@ -205,16 +205,15 @@
 			<artifactId>core</artifactId>
 			<version>${bayudwiyansatria.core.version}</version>
 		</dependency>
-		<dependency>
-			<groupId>com.bayudwiyansatria</groupId>
-			<artifactId>ml</artifactId>
-			<version>${bayudwiyansatria.ml.version}</version>
-		</dependency>
+		
+		<!-- Extra -->
 		<dependency>
 			<groupId>org.scala-lang</groupId>
 			<artifactId>scala-library</artifactId>
 			<version>${scala-language.version}</version>
 		</dependency>
+		
+		<!-- Apache Spark -->
 		<dependency>
 			<groupId>org.apache.spark</groupId>
 			<artifactId>spark-network-common_2.11</artifactId>
@@ -321,9 +320,9 @@
 								<dependencyReducedPomLocation>${basedir}/target/dependency-reduced-pom.xml</dependencyReducedPomLocation>
 								<shadeTestJar>true</shadeTestJar>
 								<artifactSet>
-									<includes>
-										<include>*:*</include>
-									</includes>
+									<excludes>
+										<exclude>*:*</exclude>
+									</excludes>
 								</artifactSet>
 								<filters>
 									<filter>
@@ -416,6 +415,24 @@
 				</executions>
 			</plugin>
 			<plugin>
+		    <groupId>org.apache.maven.plugins</groupId>
+		    <artifactId>maven-enforcer-plugin</artifactId>
+		    <version>${maven-enforcer-plugin.version}</version>
+		    <executions>
+          <execution>
+            <id>no-duplicate-declared-dependencies</id>
+            <goals>
+              <goal>enforce</goal>
+            </goals>
+            <configuration>
+              <rules>
+                <banDuplicatePomDependencyVersions/>
+              </rules>
+            </configuration>
+          </execution>
+        </executions>
+			</plugin>
+			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-scm-plugin</artifactId>
 				<version>${maven-scm-plugin.version}</version>
@@ -488,11 +505,8 @@
 						<ignoredDependency>log4j:log4j</ignoredDependency>
 						<ignoredDependency>org.apache.logging.log4j:log4j-api</ignoredDependency>
 						<ignoredDependency>org.scala-lang:scala-library</ignoredDependency>
-						<ignoredDependency>org.apache.spark:spark-core_2.11</ignoredDependency>
-						<ignoredDependency>org.apache.spark:spark-catalyst_2.11</ignoredDependency>
-						<ignoredDependency>org.apache.spark:spark-network-common_2.11</ignoredDependency>
-						<ignoredDependency> org.apache.spark:spark-launcher_2.11</ignoredDependency>
-						<ignoredDependency> org.apache.spark:spark-yarn_2.11</ignoredDependency>
+						<ignoredDependency>org.apache.spark:*</ignoredDependency>
+						<ignoredDependency>com.bayudwiyansatria:*</ignoredDependency>
 					</ignoredDependencies>
 				</configuration>
 				<executions>
@@ -575,17 +589,6 @@
 						</goals>
 					</execution>
 				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.sonatype.plugins</groupId>
-				<artifactId>nexus-staging-maven-plugin</artifactId>
-				<version>${sonatype.plugins.version}</version>
-				<extensions>true</extensions>
-				<configuration>
-					<serverId>jira</serverId>
-					<nexusUrl>https://oss.sonatype.org/</nexusUrl>
-					<autoReleaseAfterClose>true</autoReleaseAfterClose>
-				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

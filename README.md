@@ -32,6 +32,7 @@
 ![Github Actions](https://github.com/bayudwiyansatria/Library-Apache-Spark/workflows/Github%20Action/badge.svg)
 [![Build Status](https://dev.azure.com/bayudwiyansatria/Bayu%20Dwiyan%20Satria%20-%20Programming%20Library/_apis/build/status/Library-Apache-Spark?branchName=master)](https://dev.azure.com/bayudwiyansatria/Bayu%20Dwiyan%20Satria%20-%20Programming%20Library/_build/latest?definitionId=20&branchName=master)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/f2834a4963354432a9b5aec6a540c1b6)](https://www.codacy.com/manual/bayudwiyansatria/Library-Apache-Spark?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=bayudwiyansatria/Library-Apache-Spark&amp;utm_campaign=Badge_Grade)
+[![codecov](https://codecov.io/gh/bayudwiyansatria/Library-Apache-Spark/branch/master/graph/badge.svg)](https://codecov.io/gh/bayudwiyansatria/Library-Apache-Spark)
 
 Apache Spark has as its architectural foundation the resilient distributed dataset (RDD), a read-only multiset of data items distributed over a cluster of machines, that is maintained in a fault-tolerant way. The Dataframe API was released as an abstraction on top of the RDD, followed by the Dataset API. In Spark 1.x, the RDD was the primary application programming interface (API), but as of Spark 2.x use of the Dataset API is encouraged even though the RDD API is not deprecated. The RDD technology still underlies the Dataset API.
 
