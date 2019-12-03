@@ -27,6 +27,7 @@ package com.bayudwiyansatria.environment.apache.spark;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.apache.spark.api.java.JavaRDD;
+import org.apache.spark.api.java.JavaSparkContext;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -58,5 +59,22 @@ public class SparkTest {
         double[][] newData = new SparkUtils().rdd_to_double (data);
         new com.bayudwiyansatria.mat.Mat ().print ( newData );
 	}
+	
+	@Test
+	public void Spark_Clustering_BisectingKMeans(){
+		JavaSparkContext jsc = new Spark ().getSparkContext ();
+		Logger.getLogger ( "org" ).setLevel ( Level.ERROR );
+		JavaRDD<String> data = new SparkIO ().readData_String ( jsc , "src/main/resources/bigdata.csv" );
+        int[] cluster = new SparkClustering().BisectingKMeans ( new SparkIO ().readData_Vector ( data ) );
+        new com.bayudwiyansatria.mat.Mat ().print ( cluster );
+	}
+	
+	@Test
+	public void Spark_Clustering_BisectingKMeans_Centroid() {
+		JavaSparkContext jsc = new Spark ().getSparkContext ();
+		Logger.getLogger ( "org" ).setLevel ( Level.ERROR );
+		JavaRDD<String> data = new SparkIO ().readData_String ( jsc , "src/main/resources/bigdata.csv" );
+		new SparkClustering().getCentroid ( new SparkIO ().readData_Vector ( data ) );
+    }
 	
 }
