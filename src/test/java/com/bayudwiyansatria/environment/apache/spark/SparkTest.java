@@ -64,7 +64,7 @@ public class SparkTest {
 	public void Spark_Clustering_BisectingKMeans(){
 		JavaSparkContext jsc = new Spark ().getSparkContext ();
 		Logger.getLogger ( "org" ).setLevel ( Level.ERROR );
-		JavaRDD<String> data = new SparkIO ().readData_String ( jsc , "src/main/resources/bigdata.csv" );
+		JavaRDD<String> data = new SparkIO ().readData_String ( jsc , "src/main/resources/ruspini.csv" );
         int[] cluster = new SparkClustering().BisectingKMeans ( new SparkIO ().readData_Vector ( data ) );
         new com.bayudwiyansatria.mat.Mat ().print ( cluster );
 	}
@@ -73,7 +73,7 @@ public class SparkTest {
 	public void Spark_Clustering_BisectingKMeans_Centroid() {
 		JavaSparkContext jsc = new Spark ().getSparkContext ();
 		Logger.getLogger ( "org" ).setLevel ( Level.ERROR );
-		JavaRDD<String> data = new SparkIO ().readData_String ( jsc , "src/main/resources/bigdata.csv" );
+		JavaRDD<String> data = new SparkIO ().readData_String ( jsc , "src/main/resources/ruspini.csv" );
 		new SparkClustering().getCentroid ( new SparkIO ().readData_Vector ( data ) );
     }
 	
