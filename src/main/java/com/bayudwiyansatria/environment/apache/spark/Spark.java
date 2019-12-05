@@ -24,6 +24,8 @@
 
 package com.bayudwiyansatria.environment.apache.spark;
 
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 import org.apache.spark.SparkConf;
 import org.apache.spark.SparkContext;
 import org.apache.spark.api.java.JavaSparkContext;
@@ -35,8 +37,6 @@ import java.io.Serializable;
 public class Spark extends SparkConfiguration implements Serializable {
     private String[] SPARK_CONFIGURATION = new String[30];
     private String[] SPARK_CHILD_ARGUMENTS = new String[3];
-    private static JavaSparkContext SPARK_CONTEXT = null;
-    private static SparkSession SPARK_SESSION = null;
     
     public void setSparkConfiguration() {
         SPARK_CONFIGURATION = getSparkArgument();
@@ -47,12 +47,13 @@ public class Spark extends SparkConfiguration implements Serializable {
     }
     
     public JavaSparkContext getSparkContext() {
+		Logger.getLogger ( "org" ).setLevel ( Level.ERROR );
         return JavaSparkContext.fromSparkContext ( getSparkSession ().sparkContext () );
     }
     
     public SparkSession getSparkSession() {
-        SparkSession SPARK_SESSION = SparkSession.builder().config(getSparkConf ()).getOrCreate();
-        return SPARK_SESSION;
+		Logger.getLogger ( "org" ).setLevel ( Level.ERROR );
+        return SparkSession.builder().config(getSparkConf ()).getOrCreate();
     }
     
     public void SparkSubmit(String[] argument) {
