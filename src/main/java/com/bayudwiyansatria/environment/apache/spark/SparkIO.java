@@ -24,6 +24,7 @@
 
 package com.bayudwiyansatria.environment.apache.spark;
 
+import org.apache.spark.SparkContext;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.mllib.linalg.Vector;
@@ -32,12 +33,25 @@ import org.apache.spark.storage.StorageLevel;
 
 
 public class SparkIO {
+    public JavaRDD<String> readData_String(String FileName){
+        return readData_String ( new Spark().getSparkContext () , FileName, StorageLevel.MEMORY_ONLY () );
+    }
+    
     public JavaRDD<String> readData_String(JavaSparkContext SparkContext, String FileName){
         return readData_String ( SparkContext, FileName, StorageLevel.MEMORY_ONLY () );
     }
     
+    public JavaRDD<String> readData_String(String FileName, int Partitioning){
+        return readData_String ( new Spark().getSparkContext () , FileName, Partitioning, StorageLevel.MEMORY_ONLY () );
+    }
+    
     public JavaRDD<String> readData_String(JavaSparkContext SparkContext,String FileName, int Partitioning){
         return readData_String ( SparkContext, FileName, Partitioning, StorageLevel.MEMORY_ONLY () );
+    }
+    
+    public JavaRDD<String> readData_String(String FileName, StorageLevel StorageLevel){
+        //Partitioning = DataSize (Mb) / HadoopFileSystem (BlockSize);
+        return readData_String (new Spark().getSparkContext () , FileName, 1, StorageLevel);
     }
     
     public JavaRDD<String> readData_String(JavaSparkContext SparkContext,String FileName, StorageLevel StorageLevel){
@@ -45,9 +59,21 @@ public class SparkIO {
         return readData_String (SparkContext, FileName, 1, StorageLevel);
     }
     
+    public JavaRDD<String> readData_String(String FileName, int Partitioning, StorageLevel StorageLevel){
+        //Partitioning = DataSize (Mb) / HadoopFileSystem (BlockSize);
+        return new Spark().getSparkContext ().textFile ( FileName, Partitioning ).persist ( StorageLevel );
+    }
+    
     public JavaRDD<String> readData_String(JavaSparkContext SparkContext, String FileName, int Partitioning, StorageLevel StorageLevel){
         //Partitioning = DataSize (Mb) / HadoopFileSystem (BlockSize);
         return SparkContext.textFile ( FileName, Partitioning ).persist ( StorageLevel );
+    }
+    
+    public JavaRDD<String> readData_String(String FileName, int Partitioning, StorageLevel StorageLevel, String Separator){
+        if(",".equals ( Separator )) {
+            return readData_CSV ( new Spark().getSparkContext (), FileName, Partitioning, StorageLevel );
+        }
+        return readData_String (new Spark().getSparkContext (), FileName, Partitioning , StorageLevel);
     }
     
     public JavaRDD<String> readData_String(JavaSparkContext SparkContext, String FileName, int Partitioning, StorageLevel StorageLevel, String Separator){
@@ -57,8 +83,17 @@ public class SparkIO {
         return readData_String (SparkContext, FileName, Partitioning , StorageLevel);
     }
     
+    public JavaRDD<String> readData_CSV(String FileName){
+        return readData_String ( new Spark().getSparkContext () , FileName , 1, StorageLevel.MEMORY_ONLY () );
+    }
+    
     public JavaRDD<String> readData_CSV(JavaSparkContext SparkContext, String FileName){
         return readData_String ( SparkContext, FileName , 1, StorageLevel.MEMORY_ONLY () );
+    }
+    
+    public JavaRDD<String> readData_CSV(String FileName, int Partitioning){
+        //partioning = DataSize (Mb) / HDFS (BlockSize);
+        return readData_String ( new Spark().getSparkContext () , FileName , Partitioning, StorageLevel.MEMORY_ONLY () );
     }
     
     public JavaRDD<String> readData_CSV(JavaSparkContext SparkContext, String FileName, int Partitioning){
@@ -66,9 +101,19 @@ public class SparkIO {
         return readData_String ( SparkContext, FileName , Partitioning, StorageLevel.MEMORY_ONLY () );
     }
     
+    public JavaRDD<String> readData_CSV(String FileName, StorageLevel StorageLevel){
+        //partioning = DataSize (Mb) / HDFS (BlockSize);
+        return readData_String ( new Spark().getSparkContext () , FileName , 1, StorageLevel );
+    }
+    
     public JavaRDD<String> readData_CSV(JavaSparkContext SparkContext, String FileName, StorageLevel StorageLevel){
         //partioning = DataSize (Mb) / HDFS (BlockSize);
         return readData_String ( SparkContext, FileName , 1, StorageLevel );
+    }
+    
+    public JavaRDD<String> readData_CSV(String FileName, int Partitioning, StorageLevel StorageLevel){
+        //partioning = DataSize (Mb) / HDFS (BlockSize);
+        return readData_String ( new Spark().getSparkContext () , FileName , Partitioning, StorageLevel );
     }
     
     public JavaRDD<String> readData_CSV(JavaSparkContext SparkContext, String FileName, int Partitioning, StorageLevel StorageLevel){
@@ -87,20 +132,43 @@ public class SparkIO {
         });
     }
     
+    public JavaRDD<Vector> readData_Vector(String FileName){
+        return readData_Vector( readData_String ( new Spark().getSparkContext (), FileName ));
+    }
+    
     public JavaRDD<Vector> readData_Vector(JavaSparkContext SparkContext, String FileName){
         return readData_Vector( readData_String ( SparkContext, FileName ));
+    }
+    
+    public JavaRDD<Vector> readData_Vector(String FileName, int Partitioning){
+        return readData_Vector( readData_String ( new Spark().getSparkContext (), FileName, Partitioning));
     }
     
     public JavaRDD<Vector> readData_Vector(JavaSparkContext SparkContext, String FileName, int Partitioning){
         return readData_Vector( readData_String ( SparkContext, FileName, Partitioning));
     }
     
+    public JavaRDD<Vector> readData_Vector(String FileName, StorageLevel StorageLevel){
+        return readData_Vector( readData_String ( new Spark().getSparkContext (), FileName, StorageLevel));
+    }
+    
     public JavaRDD<Vector> readData_Vector(JavaSparkContext SparkContext, String FileName, StorageLevel StorageLevel){
         return readData_Vector( readData_String ( SparkContext, FileName, StorageLevel));
     }
     
+    public JavaRDD<Vector> readData_Vector(String FileName, int Partitioning, StorageLevel StorageLevel){
+        return readData_Vector( readData_String ( new Spark().getSparkContext (), FileName, Partitioning, StorageLevel));
+    }
+    
     public JavaRDD<Vector> readData_Vector(JavaSparkContext SparkContext, String FileName, int Partitioning, StorageLevel StorageLevel){
         return readData_Vector( readData_String ( SparkContext, FileName, Partitioning, StorageLevel));
+    }
+    
+    public JavaRDD<Vector> readData_Vector(String FileName, String Separator, int Partitioning, StorageLevel StorageLevel) {
+        if(",".equals ( Separator )){
+            return readData_Vector ( readData_CSV ( new Spark().getSparkContext (), FileName, Partitioning, StorageLevel ) );
+        }
+        return readData_Vector ( readData_String ( new Spark().getSparkContext (), FileName, Partitioning, StorageLevel, Separator) );
     }
     
     public JavaRDD<Vector> readData_Vector(JavaSparkContext SparkContext, String FileName, String Separator, int Partitioning, StorageLevel StorageLevel) {
