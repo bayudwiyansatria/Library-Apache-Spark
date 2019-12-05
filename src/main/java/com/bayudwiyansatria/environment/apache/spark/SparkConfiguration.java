@@ -25,6 +25,8 @@
 package com.bayudwiyansatria.environment.apache.spark;
 
 import org.apache.ivy.util.PropertiesFile;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 import org.apache.spark.SparkConf;
 
 import java.io.Serializable;
@@ -62,6 +64,7 @@ public class SparkConfiguration extends SparkProperties implements Serializable 
     /* ========================================= Spark Require Argument START ================================================ */
     
     public SparkConf getSparkConf(){
+		Logger.getLogger ( "org" ).setLevel ( Level.ERROR );
         if( getSparkMasterHost().contains("local")) {
              return new SparkConf().setAppName ( getAppName () ).setMaster ( getSparkMasterHost () );
         }
