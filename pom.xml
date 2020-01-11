@@ -169,11 +169,12 @@
 		<github.plugins.version>0.12</github.plugins.version>
 		<jacoco-maven-plugin.version>0.8.4</jacoco-maven-plugin.version>
 		<scala-language.version>2.11.2</scala-language.version>
+		<codehaus.mojo.version>1.0-beta-3</codehaus.mojo.version>
 		
 		<apache-logging-log4j.version>2.12.1</apache-logging-log4j.version>
 		<apache-spark.version>2.4.4</apache-spark.version>
 		
-		<bayudwiyansatria.core.version>1.1.8</bayudwiyansatria.core.version>
+		<bayudwiyansatria.core.version>1.1.9-SNAPSHOT</bayudwiyansatria.core.version>
 		<bayudwiyansatria.ml.version>1.0</bayudwiyansatria.ml.version>
 	</properties>
 	
@@ -205,6 +206,11 @@
 			<artifactId>core</artifactId>
 			<version>${bayudwiyansatria.core.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>com.bayudwiyansatria</groupId>
+			<artifactId>ml</artifactId>
+			<version>${bayudwiyansatria.ml.version}</version>
+		</dependency>
 		
 		<!-- Extra -->
 		<dependency>
@@ -213,31 +219,47 @@
 			<version>${scala-language.version}</version>
 		</dependency>
 		
-		<!-- Apache Spark -->
 		<dependency>
 			<groupId>org.apache.spark</groupId>
-			<artifactId>spark-network-common_2.11</artifactId>
+			<artifactId>spark-core_2.11</artifactId>
 			<version>${apache-spark.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.spark</groupId>
-			<artifactId>spark-catalyst_2.11</artifactId>
-			<version>${apache-spark.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.spark</groupId>
-			<artifactId>spark-launcher_2.11</artifactId>
-			<version>${apache-spark.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.scala-lang</groupId>
+					<artifactId>scala-library</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.spark-project.spark</groupId>
+					<artifactId>unused</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-api</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.spark</groupId>
 			<artifactId>spark-mllib_2.11</artifactId>
 			<version>${apache-spark.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.spark</groupId>
-			<artifactId>spark-yarn_2.11</artifactId>
-			<version>${apache-spark.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.scala-lang</groupId>
+					<artifactId>scala-library</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.spark</groupId>
+					<artifactId>spark-core_2.11</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.spark</groupId>
+					<artifactId>spark-tags_2.11</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.spark-project.spark</groupId>
+					<artifactId>unused</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 	</dependencies>
 	
@@ -320,8 +342,34 @@
 								<dependencyReducedPomLocation>${basedir}/target/dependency-reduced-pom.xml</dependencyReducedPomLocation>
 								<shadeTestJar>true</shadeTestJar>
 								<artifactSet>
+									<includes>
+										<include>*:*</include>
+									</includes>
 									<excludes>
-										<exclude>*:*</exclude>
+										<exclude>org.*:*</exclude>
+										<exclude>common*:*</exclude>
+										<exclude>javax*:*</exclude>
+										<exclude>io.*:*</exclude>
+										<exclude>net.*:*</exclude>
+										<exclude>joda*</exclude>
+										<exclude>log4j:*</exclude>
+										<exclude>xml*:*</exclude>
+										<exclude>xerces:*</exclude>
+										<exclude>oro:*</exclude>
+										<exclude>com.carrotsearch*</exclude>
+										<exclude>com.vlkan:*</exclude>
+										<exclude>com.univocity:*</exclude>
+										<exclude>com.fasterxml*</exclude>
+										<exclude>com.ning*</exclude>
+										<exclude>com.google*</exclude>
+										<exclude>com.chuusai*</exclude>
+										<exclude>com.clearspring*</exclude>
+										<exclude>com.github.luben*</exclude>
+										<exclude>com.github.rwl*</exclude>
+										<exclude>com.twitter*</exclude>
+										<exclude>com.esotericsoftware*</exclude>
+										<exclude>com.thoughtworks*</exclude>
+										<exclude>com.bayudwiyansatria:core*</exclude>
 									</excludes>
 								</artifactSet>
 								<filters>
@@ -418,19 +466,6 @@
 		    <groupId>org.apache.maven.plugins</groupId>
 		    <artifactId>maven-enforcer-plugin</artifactId>
 		    <version>${maven-enforcer-plugin.version}</version>
-		    <executions>
-          <execution>
-            <id>no-duplicate-declared-dependencies</id>
-            <goals>
-              <goal>enforce</goal>
-            </goals>
-            <configuration>
-              <rules>
-                <banDuplicatePomDependencyVersions/>
-              </rules>
-            </configuration>
-          </execution>
-        </executions>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -500,13 +535,12 @@
 				<version>${maven-dependency-plugin.version}</version>
 				<configuration>
 					<ignoreNonCompile>true</ignoreNonCompile>
-					<failOnWarning>false</failOnWarning>
+					<failOnWarning>true</failOnWarning>
 					<ignoredDependencies>
 						<ignoredDependency>log4j:log4j</ignoredDependency>
 						<ignoredDependency>org.apache.logging.log4j:log4j-api</ignoredDependency>
 						<ignoredDependency>org.scala-lang:scala-library</ignoredDependency>
 						<ignoredDependency>org.apache.spark:*</ignoredDependency>
-						<ignoredDependency>com.bayudwiyansatria:*</ignoredDependency>
 					</ignoredDependencies>
 				</configuration>
 				<executions>

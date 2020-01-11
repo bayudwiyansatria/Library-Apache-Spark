@@ -27,7 +27,6 @@ package com.bayudwiyansatria.environment.apache.spark;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.mllib.clustering.BisectingKMeansModel;
 import org.apache.spark.mllib.linalg.Vector;
-import org.apache.spark.mllib.linalg.Vectors;
 
 public class SparkClustering {
 	public int[] KMeans(JavaRDD<String> data, int NumberOfCluster) {
@@ -116,7 +115,6 @@ public class SparkClustering {
             System.out.println("Cluster Center " + i + ": " + clusterCenters[i]);
         }
         JavaRDD <Integer> predict = model.predict(data);
-        //predict.foreach(rdd ->System.out.println(rdd.intValue()));
         Object[] classLabel = predict.collect().toArray();
         int[] cluster = new int[classLabel.length];
         for(int i=0; i<classLabel.length; i++) {
