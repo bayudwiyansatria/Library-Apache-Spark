@@ -22,13 +22,14 @@
  * SOFTWARE.
  */
 
-package com.bayudwiyansatria.environment.apache.spark;
+package com.bayudwiyansatria.apache.spark;
 
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.mllib.clustering.BisectingKMeansModel;
 import org.apache.spark.mllib.linalg.Vector;
 
 public class SparkClustering {
+    /*
 	public int[] KMeans(JavaRDD<String> data, int NumberOfCluster) {
         double[][] newData = new SparkUtils().rdd_to_double (data);
         System.out.println(new Spark().getSparkMaster());
@@ -122,6 +123,7 @@ public class SparkClustering {
         }
         return cluster;
     }
+    */
     
     public int[] BisectingKMeans(JavaRDD<Vector> data){
         org.apache.spark.mllib.clustering.BisectingKMeans bkm = new org.apache.spark.mllib.clustering.BisectingKMeans();

@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package com.bayudwiyansatria.environment.apache.spark;
+package com.bayudwiyansatria.apache.spark;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
@@ -30,12 +30,10 @@ import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 public class SparkTest {
 	public static final Spark spark = new Spark();
 	public static final String ApplicationName = "Spark Test";
-	public static final String ClusterMaster = "devops.bayudwiyansatria.com";
+	public static final String ClusterMaster = "local[*]";
 	public static final String SparkPort = "7077";
 	public static final String MainClass = "com.bayudwiyansatria.environment.apache.spark.Spark";
 	public static final String DeployMode = "cluster";
