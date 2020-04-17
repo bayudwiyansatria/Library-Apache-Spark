@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package com.bayudwiyansatria.environment.apache.spark;
+package com.bayudwiyansatria.apache.spark;
 
 import org.apache.ivy.util.PropertiesFile;
 import org.apache.spark.SparkConf;

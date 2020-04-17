@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package com.bayudwiyansatria.environment.apache.spark;
+package com.bayudwiyansatria.apache.spark;
 import com.bayudwiyansatria.Core;
 
 import java.io.Serializable;
