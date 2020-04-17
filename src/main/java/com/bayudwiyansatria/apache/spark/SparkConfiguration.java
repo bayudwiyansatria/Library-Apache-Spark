@@ -24,9 +24,7 @@
 
 package com.bayudwiyansatria.apache.spark;
 
-import org.apache.ivy.util.PropertiesFile;
 import org.apache.spark.SparkConf;
-
 import java.io.Serializable;
 
 public class SparkConfiguration extends SparkProperties implements Serializable {
@@ -63,9 +61,11 @@ public class SparkConfiguration extends SparkProperties implements Serializable 
     
     public SparkConf getSparkConf(){
         if( getSparkMasterHost().contains("local")) {
-             return new SparkConf().setAppName ( getAppName () ).setMaster ( getSparkMasterHost () );
+             return new SparkConf().setAppName ( getAppName () ).setMaster ( getSparkMasterHost () )
+                            .set("spark.serializer", "org.apache.spark.serializer.KryoSerializer");
         }
-        return new SparkConf().setAppName ( getAppName () ).setMaster ( "spark://" + getSparkMasterHost () + ":" + getSparkMasterPort () );
+        return new SparkConf().setAppName ( getAppName () ).setMaster ( "spark://" + getSparkMasterHost () + ":" + getSparkMasterPort () )
+                       .set("spark.serializer", "org.apache.spark.serializer.KryoSerializer");
     }
     
     public void setSparkMasterHost(String SparkHost){

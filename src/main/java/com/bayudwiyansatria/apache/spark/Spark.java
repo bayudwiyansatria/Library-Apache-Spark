@@ -57,7 +57,6 @@ public class Spark extends SparkConfiguration implements Serializable {
 		System.out.println(sparkSubmit.parseArguments(argument));
 		sparkSubmit.doSubmit(argument);
 	}
-
 	public String getSparkMaster() {
 		if( getSparkMasterHost().contains("local")) {
 			setMaster(getSparkMasterHost());
@@ -70,7 +69,6 @@ public class Spark extends SparkConfiguration implements Serializable {
 			return "spark://" + getSparkMasterHost() + ":" +getSparkMasterPort();
 		}
 	}
-
 	public String[] getSparkArgument() {
 		String[] Configuration = new String[200];
 		int ConfigurationIndex = 0;
@@ -79,7 +77,6 @@ public class Spark extends SparkConfiguration implements Serializable {
 			Configuration[ConfigurationIndex-1] = "--master";
 			Configuration[ConfigurationIndex] = getSparkMaster();
 		}
-
 		if(getDeployMode() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--deploy-mode";
@@ -88,7 +85,6 @@ public class Spark extends SparkConfiguration implements Serializable {
 			}
 			Configuration[ConfigurationIndex] = getDeployMode();
 		}
-
 		if(getMainClass() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--class";
@@ -101,159 +97,121 @@ public class Spark extends SparkConfiguration implements Serializable {
 			Configuration[ConfigurationIndex-1] = "--name";
 			Configuration[ConfigurationIndex] = getAppName();
 		}
-
 		if(getExecutorMemory() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--executor-memory";
 			Configuration[ConfigurationIndex] = getExecutorMemory();
 		}
-
 		if(getExecutorCores() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--executor-cores";
 			Configuration[ConfigurationIndex] = getExecutorCores();
 		}
-
 		if(getTotalCores() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--total-cores";
 			Configuration[ConfigurationIndex] = getTotalCores();
 		}
-
 		if(getDriverCores() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--driver-cores";
 			Configuration[ConfigurationIndex] = getDriverCores();
 		}
-
 		if(getDriverMemory() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--driver-memory";
 			Configuration[ConfigurationIndex] = getDriverMemory();
 		}
-
 		if(getNumExecutors() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--num-executors";
 			Configuration[ConfigurationIndex] = getNumExecutors();
 		}
-
 		if(getJars() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--jars";
 			Configuration[ConfigurationIndex] = getJars();
 		}
-
 		if(getNumExecutors() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--driver-java-options";
 			Configuration[ConfigurationIndex] = getDriverExtraJavaOptions();
 		}
-
-		if(getPackages() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
-			Configuration[ConfigurationIndex-1] = "--packages";
-			Configuration[ConfigurationIndex] = getPackages();
-		}
-
-		if(getRepositories() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
-			Configuration[ConfigurationIndex-1] = "--repositories";
-			Configuration[ConfigurationIndex] = getRepositories();
-		}
 
 		/* =========================================== Application Properties ======================================= */
-
-		if(getSparkAppName() != null) {
-			ConfigurationIndex = ConfigurationIndex + 2;
-			Configuration[ConfigurationIndex-1] = "--conf";
-			Configuration[ConfigurationIndex] = getSparkAppName();
-		}
 
 		if(getSparkDriverCores() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkDriverCores();
 		}
-
 		if(getSparkDriverMaxResultSize() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkDriverMaxResultSize();
 		}
-
 		if(getSparkDriverMemory() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkDriverMemory();
 		}
-
 		if(getSparkDriverMemoryOverhead() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkDriverMemoryOverhead();
 		}
-
 		if(getSparkDriverAllowMultipleContexts() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkDriverAllowMultipleContexts();
 		}
-
 		if(getSparkExecutorMemory() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkExecutorMemory();
 		}
-
 		if(getSparkExecutorPySparkMemory() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkExecutorPySparkMemory();
 		}
-
 		if(getSparkExecutorMemoryOverhead() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkExecutorMemoryOverhead();
 		}
-
 		if(getSparkExtraListener() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkExtraListener();
 		}
-
 		if(getSparkLocalDirectory() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkLocalDirectory();
 		}
-
 		if(getSparkLogCOnf() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkLogCOnf();
 		}
-
 		if(getMaster() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getMaster();
 		}
-
 		if(getSparkSubmitDeployMode() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkSubmitDeployMode();
 		}
-
 		if(getSparkLogCallerContext() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkLogCallerContext();
 		}
-
 		if(getSparkDriverSupervise() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
@@ -269,19 +227,16 @@ public class Spark extends SparkConfiguration implements Serializable {
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkDriverExtraClassPath();
 		}
-
 		if(getSparkDriverExtraJavaOptions() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkDriverExtraJavaOptions();
 		}
-
 		if(getSparkDriverExtraLibraryPath() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkDriverExtraLibraryPath();
 		}
-
 		if(getSparkDriverUserClassPathFirst() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
@@ -297,109 +252,91 @@ public class Spark extends SparkConfiguration implements Serializable {
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkReducerMaxSizeInFlight();
 		}
-
 		if(getSparkReducerMaxReqsInFlight() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkReducerMaxReqsInFlight();
 		}
-
 		if(getSparkReducerMaxBlocksInFlightPerAddress() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkReducerMaxBlocksInFlightPerAddress();
 		}
-
 		if(getSparkMaxRemoteBlockSizeFetchToMem() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkMaxRemoteBlockSizeFetchToMem();
 		}
-
 		if(getSparkShuffleCompress() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkShuffleCompress();
 		}
-
 		if(getSparkShuffleFileBuffer() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkShuffleFileBuffer();
 		}
-
 		if(getSparkShuffleIOMaxRetries() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkShuffleIOMaxRetries();
 		}
-
 		if(getSparkShuffleIONumConnectionsPerPeer() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkShuffleIONumConnectionsPerPeer();
 		}
-
 		if(getSparkShuffleIOPreferDirectBufs() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkShuffleIOPreferDirectBufs();
 		}
-
 		if(getSparkShuffleIORetryWait() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkShuffleIORetryWait();
 		}
-
 		if(getSparkShuffleServiceEnabled() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkShuffleServiceEnabled();
 		}
-
 		if(getSparkShuffleServicePort() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkShuffleServicePort();
 		}
-
 		if(getSparkShuffleServiceIndexCacheSize() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkShuffleServiceIndexCacheSize();
 		}
-
 		if(getSparkShuffleMaxChunksBeingTransferred() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkShuffleMaxChunksBeingTransferred();
 		}
-
 		if(getSparkShuffleSortBypassMergeThreshold() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkShuffleSortBypassMergeThreshold();
 		}
-
 		if(getSparkShuffleSpillCompress() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkShuffleSpillCompress();
 		}
-
 		if(getSparkShuffleAccurateBlockThreshold() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkShuffleAccurateBlockThreshold();
 		}
-
 		if(getSparkShuffleRegistrationTimeout() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkShuffleRegistrationTimeout();
 		}
-
 		if(getSparkShuffleRegistrationMaxAttempts() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
@@ -415,43 +352,32 @@ public class Spark extends SparkConfiguration implements Serializable {
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkShuffleRegistrationMaxAttempts();
 		}
-
 		if(getSparkEventLogBlockUpdatesEnabled() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkEventLogBlockUpdatesEnabled();
 		}
-
 		if(getSparkEventLogLongFormEnabled() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkEventLogLongFormEnabled();
 		}
-
 		if(getSparkEventLogCompress() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkEventLogCompress();
 		}
-
 		if(getSparkEventLogDir() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkEventLogDir();
 		}
-
-		if(getSparkEventLogEnabled() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
-			Configuration[ConfigurationIndex-1] = "--conf";
-			Configuration[ConfigurationIndex] = getSparkEventLogEnabled();
-		}
-
 		if(getSparkEventLogOverWrite() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkEventLogOverWrite();
 		}
-
 		if(getSparkEventLogBufferKB() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
@@ -467,91 +393,72 @@ public class Spark extends SparkConfiguration implements Serializable {
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkBroadcastCompress();
 		}
-
 		if(getSparkIOCompressionCodec() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkIOCompressionCodec();
 		}
-
 		if(getSparkIOCompressionLz4Blocksize() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkIOCompressionLz4Blocksize();
 		}
-
 		if(getSparkIOCompressionSnappyBlockSize() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkIOCompressionSnappyBlockSize();
 		}
-
 		if(getSparkIOCompressionZSTDLevel() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkIOCompressionZSTDLevel();
 		}
-
 		if(getSparkIOCompressionZSTDBufferSize() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkIOCompressionZSTDBufferSize();
 		}
-
 		if(getKyroClassToRegister() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getKyroClassToRegister();
 		}
-
-		if(getKyroReferenceTracking() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
-			Configuration[ConfigurationIndex-1] = "--conf";
-			Configuration[ConfigurationIndex] = getKyroReferenceTracking();
-		}
-
 		if(getSparkKyroRequired() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkKyroRequired();
 		}
-
 		if(getSparkKyroRegistrator() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkKyroRegistrator();
 		}
-
 		if(getSparkKyroUnsafe() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkKyroUnsafe();
 		}
-
 		if(getSparkKyroSerializerBufferMax() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkKyroSerializerBufferMax();
 		}
-
 		if(getSparkKyroSerializerBuffer() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkKyroSerializerBuffer();
 		}
-
 		if(getRDDCompress() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getRDDCompress();
 		}
-
 		if(getSparkSerializer() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkSerializer();
 		}
-
 		if(getSparkSerializerObjectStreamReset() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
@@ -586,49 +493,41 @@ public class Spark extends SparkConfiguration implements Serializable {
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkDynamicAllocationEnabled();
 		}
-
 		if(getSparkDynamicAllocationExecutorIdleTimeout() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkDynamicAllocationExecutorIdleTimeout();
 		}
-
 		if(getSparkDynamicAllocationCachedExecutorIdleTimeout() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkDynamicAllocationCachedExecutorIdleTimeout();
 		}
-
 		if(getSparkDynamicAllocationInitialExecutors() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkDynamicAllocationInitialExecutors();
 		}
-
 		if(getSparkDynamicAllocationMaxExecutors() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkDynamicAllocationMaxExecutors();
 		}
-
 		if(getSparkDynamicAllocationMinExecutors() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkDynamicAllocationMinExecutors();
 		}
-
 		if(getDynamicAllocationExecutorAllocationRatio() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getDynamicAllocationExecutorAllocationRatio();
 		}
-
 		if(getDynamicAllocationSchedulerBacklogTimeout() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getDynamicAllocationSchedulerBacklogTimeout();
 		}
-
 		if(getDynamicAllocationSustainedSchedulerBacklogTimeout() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
@@ -659,79 +558,66 @@ public class Spark extends SparkConfiguration implements Serializable {
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkHistoryProvider();
 		}
-
 		if(getSparkHistoryFSLogDirectory() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkHistoryFSLogDirectory();
 		}
-
 		if(getSparkHistoryFSUpdateInterval() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkHistoryFSUpdateInterval();
 		}
-
 		if(getSparkHistoryRetainedApplications() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkHistoryRetainedApplications();
 		}
-
 		if(getSparkHistoryUiMaxApplications() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkHistoryUiMaxApplications();
 		}
-
 		if(getSparkHistoryUIPort() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkHistoryUIPort();
 		}
-
 		if(getSparkHistoryFsCleanerEnabled() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkHistoryFsCleanerEnabled();
 		}
-
 		if(getSparkHistoryFsCleanerInterval() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkHistoryFsCleanerInterval();
 		}
-
 		if(getSparkHistoryFsCleanerMaxAge() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkHistoryFsCleanerMaxAge();
 		}
-
 		if(getSparkHistoryFsEndEventReparseChunkSize() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkHistoryFsEndEventReparseChunkSize();
 		}
-
 		if(getSparkHistoryFsInProgressOptimizationEnabled() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkHistoryFsInProgressOptimizationEnabled();
 		}
-
 		if(getSparkHistoryFsNumReplayThreads() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkHistoryFsNumReplayThreads();
 		}
-
 		if(getSparkHistoryStoreMaxDiskUsage() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
 			Configuration[ConfigurationIndex] = getSparkHistoryStoreMaxDiskUsage();
 		}
-
 		if(getSparkHistoryStorePath() != null) {
 			ConfigurationIndex = ConfigurationIndex + 2;
 			Configuration[ConfigurationIndex-1] = "--conf";
