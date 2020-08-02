@@ -23,11 +23,10 @@
  */
 
 package com.bayudwiyansatria.apache.spark;
-import com.bayudwiyansatria.Core;
 
 import java.io.Serializable;
 
-public class SparkProperties extends Core implements Serializable {
+public class SparkProperties implements Serializable {
     /* See https://spark.apache.org/docs/latest/configuration.html for more information */
 
     /* =========================================== Application Properties =========================================== */
