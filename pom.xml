@@ -31,6 +31,7 @@
 		<artifactId>bayudwiyansatria-lib</artifactId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>
+	
 	<artifactId>bayudwiyansatria-spark</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
@@ -99,7 +100,6 @@
 			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
 			<layout>default</layout>
 		</snapshotRepository>
-		<downloadUrl>https://search.maven.org/artifact/com.bayudwiyansatria/core</downloadUrl>
 	</distributionManagement>
 
 	<issueManagement>
@@ -125,17 +125,6 @@
 			<id>central</id>
 			<name>Central Repository</name>
 			<url>https://repo1.maven.org/maven2</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-		<repository>
-			<id>azure</id>
-			<name>Azure DevOps Artifacts</name>
-			<url>https://pkgs.dev.azure.com/bayudwiyansatria/_packaging/bayudwiyansatria/maven/v1</url>
 			<releases>
 				<enabled>true</enabled>
 			</releases>
@@ -180,15 +169,9 @@
 
 		<!-- Main Properties -->
 		<apache-logging-log4j.version>2.11.2</apache-logging-log4j.version>
-		<bayudwiyansatria-lib.version>1.0-SNAPSHOT</bayudwiyansatria-lib.version>
 		<scala-language.version>2.11.2</scala-language.version>
-		<codehaus.mojo.version>1.0-beta-3</codehaus.mojo.version>
-
-		<apache-logging-log4j.version>2.12.1</apache-logging-log4j.version>
 		<apache-spark.version>2.4.4</apache-spark.version>
-		<jacoco-maven-plugin.version>0.8.4</jacoco-maven-plugin.version>
-
-		<bayudwiyansatria.lib.version>1.0-SNAPSHOT</bayudwiyansatria.lib.version>
+		<bayudwiyansatria-lib.version>1.0-SNAPSHOT</bayudwiyansatria-lib.version>
 	</properties>
 
 	<dependencyManagement>
@@ -199,18 +182,13 @@
 				<artifactId>log4j-api</artifactId>
 				<version>${apache-logging-log4j.version}</version>
 			</dependency>
+			
 			<dependency>
 				<groupId>com.bayudwiyansatria</groupId>
 				<artifactId>bayudwiyansatria-core</artifactId>
 				<version>${bayudwiyansatria-lib.version}</version>
 			</dependency>
-
-			<dependency>
-				<groupId>com.bayudwiyansatria</groupId>
-				<artifactId>bayudwiyansatria-ml</artifactId>
-				<version>${bayudwiyansatria-lib.version}</version>
-			</dependency>
-
+			
 			<dependency>
 				<groupId>org.scala-lang</groupId>
 				<artifactId>scala-library</artifactId>
@@ -258,7 +236,6 @@
 					</exclusion>
 				</exclusions>
 			</dependency>
-
 		</dependencies>
 	</dependencyManagement>
 
@@ -268,15 +245,6 @@
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-api</artifactId>
 			<scope>test</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>com.bayudwiyansatria</groupId>
-			<artifactId>bayudwiyansatria-core</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.bayudwiyansatria</groupId>
-			<artifactId>bayudwiyansatria-ml</artifactId>
 		</dependency>
 
 		<dependency>
@@ -325,7 +293,10 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-
+		<dependency>
+			<groupId>com.bayudwiyansatria</groupId>
+			<artifactId>bayudwiyansatria-core</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -405,7 +376,6 @@
 										<exclude>com.twitter*</exclude>
 										<exclude>com.esotericsoftware*</exclude>
 										<exclude>com.thoughtworks*</exclude>
-										<exclude>com.bayudwiyansatria:core*</exclude>
 									</excludes>
 								</artifactSet>
 								<filters>
